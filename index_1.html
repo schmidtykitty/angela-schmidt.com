@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angela Schmidt — Poets of Gesture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:     #FBFAF8;
+    --ink:    #1A1714;
+    --pink:   #8C8880;
+    --yellow: #D9DC1D;
+    --orange: #E84A17;
+    --muted:  #8A8070;
+    --rule:   rgba(26,23,20,0.12);
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2.5rem;
+    border-bottom: 1.5px solid var(--ink);
+    position: sticky; top: 0; background: var(--bg); z-index: 100;
+  }
+  .nav-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.08em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--pink); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-bottom: 1.5px solid var(--ink);
+    min-height: 520px;
+  }
+
+  .hero-image-panel {
+    position: relative; overflow: hidden;
+    border-right: 1.5px solid var(--ink);
+    background: var(--bg);
+  }
+
+  /* yellow block, slightly rotated — off-register collage */
+  .hero-image-panel::before {
+    content: '';
+    position: absolute; top: -8px; left: -12px;
+    width: 72%; height: 50%;
+    background: var(--yellow);
+    transform: rotate(-1.8deg);
+    z-index: 0;
+  }
+
+  /* pink horizontal slash */
+  .hero-image-panel::after {
+    content: '';
+    position: absolute; bottom: 88px; right: -8px;
+    width: 52%; height: 4px;
+    background: var(--pink);
+    transform: rotate(-1.5deg);
+    z-index: 3;
+  }
+
+  .hero-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  /* collage slip: "POETS OF GESTURE" yellow label */
+  .hero-label {
+    position: absolute; bottom: 28px; left: 24px; z-index: 4;
+    background: var(--yellow);
+    font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 5px 12px; color: var(--ink);
+    transform: rotate(-1deg);
+  }
+
+  /* orange X mark top-right */
+  .hero-x {
+    position: absolute; top: 20px; right: 22px; z-index: 4;
+    width: 28px; height: 28px;
+  }
+  .hero-x::before, .hero-x::after {
+    content: '';
+    position: absolute; top: 50%; left: 0; width: 100%; height: 2.5px;
+    background: var(--orange);
+  }
+  .hero-x::before { transform: translateY(-50%) rotate(45deg); }
+  .hero-x::after  { transform: translateY(-50%) rotate(-45deg); }
+
+  .hero-text {
+    padding: 2.5rem 2.5rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+  }
+
+  /* orange stamp */
+  .hero-stamp {
+    position: absolute; top: 24px; right: 20px;
+    background: var(--orange); color: var(--bg);
+    font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 5px 10px; transform: rotate(2.5deg);
+  }
+
+  .hero-eyebrow {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 22px; height: 1.5px; background: var(--pink);
+  }
+
+  .hero-h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 9vw, 112px);
+    line-height: 0.85; letter-spacing: 0.01em;
+  }
+  .hero-h1 em { color: var(--ink); font-style: italic; font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 0.72em; letter-spacing: 0.01em; line-height: 1.05; display: block; margin-top: 0.15em; text-transform: none; }
+
+  /* acid yellow underline, slightly tilted */
+  .hero-underline {
+    width: 65%; height: 5px; background: var(--yellow);
+    margin-top: 6px; transform: rotate(-0.4deg); margin-left: 1px;
+  }
+
+  .hero-bio {
+    font-size: 12px; line-height: 1.95; color: var(--muted); max-width: 320px;
+  }
+  .hero-bio em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; color: var(--ink);
+  }
+
+  .hero-avail {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    border: 1.5px solid var(--ink); padding: 7px 16px; width: fit-content;
+    cursor: pointer; transition: background 0.15s, color 0.15s;
+  }
+  .hero-avail:hover { background: var(--ink); color: var(--bg); }
+  .hero-avail::before {
+    content: ''; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--pink); display: block;
+  }
+
+  /* ── SECTION BAR ── */
+  .section-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.85rem 2.5rem;
+    border-bottom: 1.5px solid var(--ink);
+    background: var(--ink);
+  }
+  .section-bar-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px; letter-spacing: 0.08em; color: var(--bg);
+  }
+  .section-bar-meta {
+    font-size: 9px; letter-spacing: 0.12em; color: rgba(242,237,226,0.3);
+  }
+
+
+  /* ── WORK ROWS (new) ── */
+  .work-list { border-bottom: 1.5px solid var(--ink); }
+
+  .wr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--rule);
+    min-height: 320px;
+  }
+
+  .wr-img-col {
+    border-right: 1.5px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wr:nth-child(even) .wr-img-col {
+    border-right: none;
+    border-left: 1.5px solid var(--ink);
+    order: 2;
+  }
+  .wr:nth-child(even) .wr-txt-col {
+    order: 1;
+  }
+
+  .wr-txt-col {
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .wr-tag {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--pink);
+  }
+
+  .wr-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; letter-spacing: 0.02em; color: var(--ink);
+    line-height: 0.95;
+  }
+
+  .wr-desc {
+    font-size: 11px; line-height: 1.85; color: var(--muted);
+    max-width: 400px; flex: 1;
+  }
+
+  .wr-desc em { font-style: italic; color: var(--ink); }
+
+  .wr-foot {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 1px solid var(--rule); padding-top: 0.85rem; margin-top: 0.5rem;
+  }
+
+  .wr-meta { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .wr-arr  { font-size: 16px; color: var(--rule); }
+
+  /* ── CAROUSEL ── */
+  .cs {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .cs-slide {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    cursor: zoom-in;
+  }
+
+  .cs-slide.active { opacity: 1; z-index: 1; }
+
+  .cs-img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  .cs-cap {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(26,23,20,0.7); color: rgba(242,237,226,0.85);
+    padding: 6px 12px;
+    opacity: 0; transition: opacity 0.2s;
+  }
+
+  .cs:hover .cs-cap { opacity: 1; }
+
+  .cs-prev, .cs-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 3; background: var(--bg);
+    border: 1.5px solid var(--ink);
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+    color: var(--ink);
+  }
+
+  .cs-prev:hover, .cs-next:hover { background: var(--ink); color: var(--bg); }
+  .cs-prev { left: 10px; }
+  .cs-next { right: 10px; }
+
+  .cs-dots {
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 5px; z-index: 3;
+  }
+
+  .cs-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    border: none; background: rgba(26,23,20,0.25); cursor: pointer;
+    padding: 0; transition: background 0.15s;
+  }
+
+  .cs-dot.cs-dot--on { background: var(--pink); }
+
+  .cs-placeholder {
+    width: 100%; height: 100%; min-height: 280px;
+    background: var(--yellow); opacity: 0.15;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 48px;
+    color: var(--muted); letter-spacing: 0.05em;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lb-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(26,23,20,0.92);
+    align-items: center; justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .lb-overlay.open { display: flex; }
+
+  .lb-img-wrap {
+    position: relative;
+    max-width: 88vw;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .lb-img {
+    max-width: 88vw;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lb-cap {
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(242,237,226,0.6);
+  }
+
+  .lb-close {
+    position: fixed; top: 20px; right: 24px;
+    background: none; border: none;
+    color: var(--bg); font-size: 28px; cursor: pointer;
+    line-height: 1; z-index: 1001;
+    transition: color 0.15s;
+  }
+
+  .lb-close:hover { color: var(--pink); }
+
+  .lb-prev, .lb-next {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    background: none; border: 1.5px solid rgba(242,237,226,0.3);
+    color: var(--bg); font-size: 20px; cursor: pointer;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.15s, color 0.15s; z-index: 1001;
+  }
+
+  .lb-prev:hover, .lb-next:hover { border-color: var(--pink); color: var(--pink); }
+  .lb-prev { left: 20px; }
+  .lb-next { right: 20px; }
+
+  @media (max-width: 768px) {
+    .wr { grid-template-columns: 1fr; }
+    .wr-img-col { min-height: 240px; border-right: none !important; border-left: none !important; border-bottom: 1.5px solid var(--ink); }
+    .wr:nth-child(even) .wr-img-col { order: 0; }
+    .wr:nth-child(even) .wr-txt-col { order: 1; }
+  }
+
+
+  /* ── STUDIO ── */
+  .studio {
+    display: grid; grid-template-columns: 1.1fr 0.9fr;
+    border-bottom: 1.5px solid var(--ink);
+    min-height: 340px;
+  }
+
+  .studio-illo {
+    position: relative; overflow: hidden;
+    border-right: 1.5px solid var(--ink);
+  }
+
+  /* orange tinted block behind collage image */
+  .studio-illo::before {
+    content: '';
+    position: absolute; top: -6px; left: -10px;
+    width: 65%; height: 85%;
+    background: var(--orange); opacity: 0.1;
+    transform: rotate(-1.5deg); z-index: 0;
+  }
+
+  .studio-img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    display: block; position: relative; z-index: 1;
+    mix-blend-mode: multiply;
+  }
+
+  /* torn-paper SVG overlay at bottom of studio panel */
+  .studio-tear {
+    position: absolute; bottom: -1px; left: 0; right: 0; z-index: 2;
+    pointer-events: none;
+  }
+
+  .studio-annotation {
+    position: absolute; bottom: 22px; left: 20px; z-index: 3;
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 10px;
+    color: var(--muted); transform: rotate(-1.5deg); opacity: 0.7;
+  }
+
+  .studio-text {
+    padding: 2.5rem 2rem;
+    display: flex; flex-direction: column; justify-content: center; gap: 1.5rem;
+    position: relative;
+  }
+
+  /* rotated aside note */
+  .studio-aside {
+    position: absolute; bottom: 28px; right: -38px;
+    font-size: 7px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--orange); transform: rotate(90deg);
+    transform-origin: bottom right; white-space: nowrap; opacity: 0.65;
+  }
+
+  .studio-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px; line-height: 0.88; letter-spacing: 0.02em;
+  }
+  .studio-title em { color: var(--pink); font-style: normal; }
+  .studio-desc { font-size: 11px; line-height: 1.9; color: var(--muted); }
+
+  .studio-links { display: flex; flex-direction: column; }
+  .studio-link {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.65rem 0; border-top: 1px solid var(--rule);
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    cursor: pointer; transition: color 0.12s;
+  }
+  .studio-link:hover { color: var(--pink); }
+
+  /* ── ABOUT ── */
+  .about {
+    display: grid; grid-template-columns: 240px 1fr;
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .about-left {
+    padding: 2.5rem 2rem; border-right: 1.5px solid var(--ink);
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+  }
+
+  /* teacup image in about-left corner */
+  .about-teacup {
+    width: 100%; aspect-ratio: 1;
+    object-fit: cover; object-position: center;
+    display: block; margin-bottom: 1.5rem;
+    mix-blend-mode: multiply;
+  }
+
+  .stat-block { padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .stat-n { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1; }
+  .stat-n.pk { color: var(--pink); }
+  .stat-n.yl { color: var(--yellow); -webkit-text-stroke: 1.5px var(--ink); paint-order: stroke fill; }
+  .stat-l { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+
+  .about-right { padding: 2.5rem 2.5rem; position: relative; }
+
+  .about-rotated {
+    position: absolute; top: 40px; right: -18px;
+    font-size: 7px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--orange); transform: rotate(90deg);
+    transform-origin: top right; white-space: nowrap; opacity: 0.6;
+  }
+
+  .about-text {
+    font-size: 12px; line-height: 2.1; color: var(--ink);
+    max-width: 520px; margin-bottom: 2rem;
+  }
+  .about-text em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; color: var(--pink);
+  }
+
+  .timeline { display: flex; flex-direction: column; }
+  .t-row {
+    display: grid; grid-template-columns: 96px 1fr 1fr;
+    padding: 0.75rem 0; border-top: 1px solid var(--rule);
+    font-size: 10px; gap: 1rem; align-items: baseline;
+  }
+  .t-yr  { color: var(--muted); }
+  .t-co  { letter-spacing: 0.03em; }
+  .t-role { color: var(--muted); font-size: 9px; }
+
+  /* ── CONTACT ── */
+  .contact-list { border-bottom: 1.5px solid var(--ink); }
+  .c-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.5rem 2.5rem; border-bottom: 1px solid var(--rule);
+    cursor: pointer; transition: background 0.12s;
+  }
+  .c-row:last-child { border-bottom: none; }
+  .c-row:hover { background: rgba(232,23,92,0.04); }
+  .c-row:hover .c-arr { color: var(--pink); }
+  .c-label { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.05em; }
+  .c-sub   { font-size: 9px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+  .c-arr   { font-size: 20px; color: var(--rule); transition: color 0.15s; }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 1.25rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--rule);
+  }
+  .footer-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px; letter-spacing: 0.1em; color: var(--muted);
+  }
+  .footer-copy {
+    font-size: 8px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-image-panel { min-height: 320px; border-right: none; border-bottom: 1.5px solid var(--ink); }
+    .studio { grid-template-columns: 1fr; }
+    .studio-illo { min-height: 280px; border-right: none; border-bottom: 1.5px solid var(--ink); }
+    .about { grid-template-columns: 1fr; }
+    .about-left { border-right: none; border-bottom: 1.5px solid var(--ink); }
+    .work-row { grid-template-columns: 2.5rem 1fr 2rem; }
+    .work-meta { display: none; }
+    .nav-links { gap: 1.25rem; }
+  }
+
+  /* ── HERO ANIMATIONS ── */
+  #hero-h1 {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;
+  }
+  #hero-underline {
+    width: 0 !important;
+    animation: expandWidth 0.8s cubic-bezier(0.16,1,0.3,1) 0.85s forwards;
+  }
+  .hero-bio {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s forwards;
+  }
+  .hero-image-panel {
+    opacity: 0;
+    animation: fadeIn 1.1s cubic-bezier(0.16,1,0.3,1) 0s forwards;
+  }
+  .hero-image-panel::before {
+    transform: rotate(-1.8deg) scaleX(0);
+    transform-origin: left center;
+    animation: slideInBlock 0.9s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  @keyframes expandWidth {
+    to { width: 65% !important; }
+  }
+  @keyframes slideInBlock {
+    to { transform: rotate(-1.8deg) scaleX(1); }
+  }
+
+  /* image panel: stagger the pink slash in */
+  .hero-image-panel::after {
+    transform: rotate(-1.5deg) scaleX(0);
+    transform-origin: right center;
+    animation: slideInSlash 0.7s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+  }
+  @keyframes slideInSlash {
+    to { transform: rotate(-1.5deg) scaleX(1); }
+  }
+
+  /* X mark fade in late */
+  .hero-x {
+    opacity: 0;
+    animation: fadeIn 0.5s ease 1s forwards;
+  }
+
+  /* reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    #hero-eyebrow, #hero-h1, #hero-underline, .hero-bio,
+    .hero-image-panel, .hero-x {
+      opacity: 1 !important; transform: none !important;
+      animation: none !important;
+    }
+    #hero-underline { width: 65% !important; }
+  }
+
+  /* ── IMAGE SLIDESHOW ── */
+  .hero-slideshow {
+    position: absolute; inset: 0; z-index: 1;
+  }
+  .hero-slide {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    opacity: 0;
+    transition: opacity 0.9s cubic-bezier(0.4,0,0.2,1);
+    mix-blend-mode: multiply;
+  }
+  .hero-slide.active {
+    opacity: 1;
+  }
+
+  /* ── PERFORMANCE (filmstrip layout) ── */
+  .perf {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    border-bottom: 1.5px solid var(--ink);
+    min-height: 520px;
+  }
+
+  /* ── LEFT: bio + accordion ── */
+  .perf-left {
+    border-right: 1.5px solid var(--ink);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+
+  .perf-bio {
+    padding: 2rem 2rem 1.5rem;
+    flex: 1;
+    display: flex; flex-direction: column; gap: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .perf-intro-label {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--pink); display: flex; align-items: center; gap: 0.75rem;
+  }
+  .perf-intro-label::before {
+    content: ''; display: block; width: 20px; height: 1.5px; background: var(--pink);
+  }
+
+  .perf-bio-text {
+    font-size: 10.5px; line-height: 1.9; color: var(--muted); max-width: 340px;
+  }
+
+  .perf-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.25rem; }
+  .perf-tag {
+    font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;
+    border: 1px solid var(--rule); padding: 3px 9px; color: var(--muted);
+  }
+
+  /* accordion */
+  .perf-accordion { border-top: 1px solid var(--rule); }
+
+  .perf-acc-trigger {
+    width: 100%; text-align: left; background: none; border: none;
+    padding: 0.85rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); cursor: pointer;
+    border-top: 1px solid var(--rule);
+    transition: color 0.12s;
+  }
+  .perf-acc-trigger:first-child { border-top: none; }
+  .perf-acc-trigger:hover { color: var(--ink); }
+  .perf-acc-trigger .perf-acc-icon { transition: transform 0.25s; font-size: 12px; }
+  .perf-acc-trigger.open .perf-acc-icon { transform: rotate(45deg); }
+
+  .perf-acc-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1);
+    border-top: 1px solid var(--rule);
+  }
+  .perf-acc-body.open { max-height: 400px; }
+
+  /* credits inside accordion */
+  .perf-credit-row {
+    display: grid; grid-template-columns: 44px 1fr;
+    padding: 0.5rem 2rem; gap: 1rem; align-items: baseline;
+    font-size: 10px; border-top: 1px solid var(--rule);
+  }
+  .perf-credit-row:first-child { border-top: none; }
+  .perf-credit-year { color: var(--muted); font-size: 9px; }
+  .perf-credit-detail { line-height: 1.5; }
+  .perf-credit-role { display: block; font-size: 9px; color: var(--muted); margin-top: 1px; }
+
+  /* training inside accordion */
+  .perf-training-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; padding: 0 2rem 0.75rem;
+  }
+  .perf-training-item {
+    padding: 0.6rem 0; border-top: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .perf-training-item:nth-child(odd) { padding-right: 1rem; border-right: 1px solid var(--rule); }
+  .perf-training-item:nth-child(even) { padding-left: 1rem; }
+  .perf-training-school { font-size: 10px; }
+  .perf-training-detail { font-size: 9px; color: var(--muted); line-height: 1.5; }
+
+  /* ── RIGHT: filmstrip ── */
+  .perf-filmstrip {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    display: flex; flex-direction: column;
+  }
+
+  .perf-filmstrip-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+    cursor: grab;
+    user-select: none;
+  }
+  .perf-filmstrip-track.dragging { cursor: grabbing; transition: none; }
+
+  .perf-frame {
+    flex-shrink: 0;
+    width: 340px;
+    height: 100%;
+    min-height: 520px;
+    position: relative;
+    border-left: 1px solid rgba(242,237,226,0.08);
+    overflow: hidden;
+  }
+  .perf-frame:first-child { border-left: none; }
+
+  .perf-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    filter: grayscale(20%) contrast(1.05);
+    transition: filter 0.4s ease;
+  }
+  .perf-frame:hover img { filter: grayscale(0%) contrast(1); }
+
+  .perf-frame-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 1.5rem 1rem 0.75rem;
+    background: linear-gradient(transparent, rgba(26,23,20,0.85));
+    font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(242,237,226,0.75);
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .perf-frame:hover .perf-frame-label { opacity: 1; }
+
+  /* filmstrip nav */
+  .perf-strip-nav {
+    position: absolute; bottom: 14px; right: 14px;
+    display: flex; gap: 6px; z-index: 5;
+  }
+  .perf-strip-btn {
+    width: 30px; height: 30px;
+    background: rgba(242,237,226,0.12); border: 1px solid rgba(242,237,226,0.25);
+    color: rgba(242,237,226,0.8); font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.15s, border-color 0.15s;
+  }
+  .perf-strip-btn:hover { background: var(--pink); border-color: var(--pink); color: #fff; }
+
+  /* filmstrip counter */
+  .perf-strip-counter {
+    position: absolute; top: 14px; right: 14px;
+    font-size: 8px; letter-spacing: 0.15em;
+    color: rgba(242,237,226,0.4);
+    z-index: 5;
+  }
+
+  /* click-to-lightbox cursor */
+  .perf-frame { cursor: zoom-in; }
+
+  @media (max-width: 768px) {
+    .perf { grid-template-columns: 1fr; }
+    .perf-left { border-right: none; border-bottom: 1.5px solid var(--ink); }
+    .perf-filmstrip { min-height: 320px; }
+    .perf-frame { width: 260px; min-height: 320px; }
+  }
+
+
+  /* ── PAGE SYSTEM ── */
+  .page-section { display: none; }
+  .page-section.active {
+    display: block;
+    animation: pageFadeIn 0.3s ease forwards;
+  }
+  @keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .nav-links a.nav-active { color: var(--pink); }
+
+  .site-crumb {
+    display: none;
+    padding: 0.55rem 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); cursor: pointer; align-items: center; gap: 0.5rem;
+    background: var(--bg); transition: color 0.12s;
+  }
+  .site-crumb.visible { display: flex; }
+  .site-crumb:hover { color: var(--pink); }
+  .site-crumb::before { content: "←"; font-size: 10px; }
+
+
+  /* ── DANCER CURSOR ── */
+  * { cursor: none !important; }
+
+  #dancer-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    width: 48px;
+    height: 48px;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+    will-change: transform;
+  }
+
+  #dancer-cursor svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* dot fallback at exact pointer position */
+  #cursor-dot {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100000;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--pink);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s;
+  }
+
+
+  /* ── STUDIO GALLERY ── */
+  .studio-gallery {
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  /* section-bar reused from global styles */
+
+  /* series row: label left, carousel right */
+  .sg-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    border-bottom: 1px solid var(--rule);
+    min-height: 340px;
+  }
+  .sg-row:last-child { border-bottom: none; }
+
+  .sg-label-col {
+    border-right: 1.5px solid var(--ink);
+    padding: 2rem 1.75rem;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    background: var(--bg);
+  }
+
+  .sg-series-tag {
+    font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--pink);
+  }
+
+  .sg-series-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 0.02em;
+    color: var(--ink); line-height: 0.95;
+  }
+
+  .sg-series-desc {
+    font-size: 10px; line-height: 1.85;
+    color: var(--muted); margin-top: 0.5rem;
+  }
+
+  .sg-series-meta {
+    font-size: 8px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.75rem; margin-top: 0.75rem;
+  }
+
+  /* horizontal filmstrip inside each row */
+  .sg-strip {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    cursor: grab;
+  }
+  .sg-strip.dragging { cursor: grabbing; }
+
+  .sg-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  }
+  .sg-track.no-transition { transition: none; }
+
+  .sg-frame {
+    flex-shrink: 0;
+    width: 300px;
+    height: 100%;
+    min-height: 340px;
+    position: relative;
+    border-left: 1px solid rgba(242,237,226,0.1);
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+  .sg-frame:first-child { border-left: none; }
+
+  .sg-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .sg-frame:hover img { transform: scale(1.03); }
+
+  .sg-frame-cap {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 1.25rem 0.85rem 0.6rem;
+    background: linear-gradient(transparent, rgba(26,23,20,0.8));
+    font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(242,237,226,0.75);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .sg-frame:hover .sg-frame-cap { opacity: 1; }
+
+  /* nav arrows */
+  .sg-prev, .sg-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 4; background: rgba(242,237,226,0.1);
+    border: 1px solid rgba(242,237,226,0.2);
+    color: rgba(242,237,226,0.8); font-size: 14px;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.12s;
+  }
+  .sg-prev:hover, .sg-next:hover { background: var(--pink); border-color: var(--pink); color:#fff; }
+  .sg-prev { left: 8px; }
+  .sg-next { right: 8px; }
+
+  /* counter */
+  .sg-counter {
+    position: absolute; bottom: 10px; right: 10px;
+    font-size: 8px; letter-spacing: 0.15em;
+    color: rgba(242,237,226,0.35); z-index: 4;
+  }
+
+  /* studio intro hero stays but slimmer */
+  .studio-hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-bottom: 1.5px solid var(--ink);
+    min-height: 280px;
+  }
+  .studio-hero-img {
+    border-right: 1.5px solid var(--ink);
+    overflow: hidden; position: relative;
+  }
+  .studio-hero-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    display: block; mix-blend-mode: multiply;
+  }
+  .studio-hero-text {
+    padding: 1.4rem 2rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .studio-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px; letter-spacing: 0.01em; line-height: 0.9;
+    color: var(--ink);
+  }
+  .studio-hero-title em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; color: var(--pink);
+  }
+  .studio-hero-desc {
+    font-size: 11px; line-height: 1.85; color: var(--muted);
+    max-width: 380px;
+  }
+  .studio-hero-tagline {
+    font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); border-top: 1px solid var(--rule);
+    padding-top: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .sg-row { grid-template-columns: 1fr; min-height: auto; }
+    .sg-label-col { border-right: none; border-bottom: 1px solid var(--rule); min-height: auto; }
+    .sg-frame { width: 240px; min-height: 260px; }
+    .studio-hero { grid-template-columns: 1fr; }
+    .studio-hero-img { min-height: 200px; border-right: none; border-bottom: 1.5px solid var(--ink); }
+  }
+
+
+  .studio-hero-supertitle {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+
+  .sg-hashtag { color: var(--pink); text-decoration: none; transition: opacity 0.15s; }
+  .sg-hashtag:hover { opacity: 0.7; }
+
+/* ── TRUSTED BY ── */
+  .trusted-by {
+    border-bottom: 1.5px solid var(--ink);
+    padding: 0 2.5rem;
+    background: var(--bg);
+    display: flex;
+    align-items: stretch;
+    min-height: 72px;
+    overflow-x: auto;
+  }
+
+  .tb-label {
+    font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap;
+    display: flex; align-items: center;
+    padding-right: 2rem;
+    border-right: 1px solid var(--rule);
+    flex-shrink: 0;
+  }
+
+  .tb-items {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .tb-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.5rem;
+    border-right: 1px solid var(--rule);
+    height: 100%;
+    min-height: 72px;
+    flex-shrink: 0;
+    opacity: 0.38;
+    transition: opacity 0.2s;
+  }
+  .tb-item:last-child { border-right: none; }
+  .tb-item:hover { opacity: 0.85; }
+
+  @media (max-width: 900px) {
+    .trusted-by { padding: 0 1rem; }
+    .tb-item { padding: 0 1rem; }
+  }
+
+  /* ── CLIENTS ── */
+  .clients {
+    border-bottom: 1.5px solid var(--ink);
+    padding: 2rem 2.5rem 1.75rem;
+    background: var(--bg);
+  }
+
+  .clients-label {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .clients-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--rule);
+  }
+
+  .clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+  }
+
+  .client-item {
+    padding: 1rem 1.25rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 68px;
+    transition: background 0.15s;
+  }
+  .client-item:nth-child(6n)       { border-right: none; }
+  .client-item:nth-last-child(-n+6){ border-bottom: none; }
+  .client-item:hover                { background: rgba(26,23,20,0.03); }
+
+  .client-logo-wrap {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; max-width: 120px; height: 40px;
+    color: var(--ink);
+    opacity: 0.38;
+    transition: opacity 0.2s;
+  }
+  .client-item:hover .client-logo-wrap { opacity: 0.85; }
+
+  .client-logo-wrap svg {
+    width: 100%; height: 100%;
+    max-height: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .clients-grid { grid-template-columns: repeat(3, 1fr); }
+    .client-item:nth-child(6n)        { border-right: 1px solid var(--rule); }
+    .client-item:nth-child(3n)        { border-right: none; }
+    .client-item:nth-last-child(-n+6) { border-bottom: 1px solid var(--rule); }
+    .client-item:nth-last-child(-n+3) { border-bottom: none; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- DANCER CURSOR -->
+<div id="dancer-cursor"><svg viewBox="0 0 40 48" xmlns="http://www.w3.org/2000/svg" style="color:var(--ink)"></svg></div>
+<div id="cursor-dot"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-name" href="#" id="nav-home" style="text-decoration:none;color:inherit;cursor:pointer;">Angela Schmidt</a>
+  <ul class="nav-links">
+    <li><a href="#" data-page="work">Work</a></li>
+    <li><a href="#" data-page="studio">Studio</a></li>
+    <li><a href="#" data-page="performance">Performance</a></li>
+    <li><a href="#" data-page="about">About</a></li>
+    <li><a href="#" data-page="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- BACK CRUMB -->
+<div class="site-crumb" id="site-crumb">Home</div>
+
+<!-- HOMEPAGE ONLY: hero + ticker -->
+<div class="homepage-only">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-image-panel">
+    <div class="hero-slideshow">
+      <img data-slot="Colored pencil dancer sketch" class="hero-slide active" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Colored pencil dancer sketch">
+      <img data-slot="Pink collage figures" class="hero-slide" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Pink collage figures">
+      <img data-slot="B&W dancer with architecture" class="hero-slide" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="B&W dancer with architecture">
+      <img data-slot="Ink sketch dancer" class="hero-slide" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Ink sketch dancer">
+      <img data-slot="Colored dance figures" class="hero-slide" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Colored dance figures">
+    </div>
+    <div class="hero-x" aria-hidden="true"></div>
+  </div>
+  <div class="hero-text">
+    <div>
+      <h1 class="hero-h1" id="hero-h1">Experience<br>Strategist<br><em>&amp; Business Innovation</em></h1>
+      <div class="hero-underline" id="hero-underline"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+      <p class="hero-bio">Former professional ballet dancer turned experience strategist — movement was always the first language. Now I research, design, and prototype the experiences that turn complex technologies and ambitious products into something people actually understand, trust, and use.<br><br>Research, strategy, and service design working as one discipline. Not two. <em>At global scale.</em></p>
+  </div>
+</section>
+</div>
+
+</div>
+</div>
+
+<!-- CLIENTS -->
+<div class="homepage-only">
+<div class="trusted-by">
+  <div class="tb-label">Trusted by</div>
+  <div class="tb-items">
+    <div class="tb-item" title="Microsoft">
+      <img data-slot="Microsoft" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Microsoft" style="max-width:168px;max-height:46px;width:auto;height:auto;object-fit:contain;display:block;">
+    </div>    <div class="tb-item" title="Meta">
+      <svg viewBox="0 0 72 22" xmlns="http://www.w3.org/2000/svg" aria-label="Meta" style="height:20px;width:auto;">
+  <text x="0" y="18" font-family="Helvetica Neue,Arial,sans-serif" font-size="22" font-weight="700" fill="#1a1714" letter-spacing="-0.5">Meta</text>
+</svg>
+    </div>    <div class="tb-item" title="Amazon">
+      <img data-slot="Amazon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Amazon" style="max-width:140px;max-height:38px;width:auto;height:auto;object-fit:contain;display:block;">
+    </div>    <div class="tb-item" title="Acura">
+      <img data-slot="Acura" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Acura" style="max-width:140px;max-height:38px;width:auto;height:auto;object-fit:contain;display:block;">
+    </div>    <div class="tb-item" title="Jazz at Lincoln Center">
+      <img data-slot="Jazz at Lincoln Center" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Jazz at Lincoln Center" style="max-height:44px;max-width:28px;width:auto;object-fit:contain;display:block;">
+    </div>    <div class="tb-item" title="Bill & Melinda Gates Foundation">
+      <img data-slot="Bill & Melinda Gates Foundation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Bill & Melinda Gates Foundation" style="max-height:32px;max-width:160px;width:auto;object-fit:contain;display:block;">
+    </div>    <div class="tb-item" title="General Assembly">
+      <svg viewBox="0 0 108 28" xmlns="http://www.w3.org/2000/svg" aria-label="General Assembly" style="height:26px;width:auto;">
+  <circle cx="12" cy="14" r="12" fill="none" stroke="#1a1714" stroke-width="1.8"/>
+  <text x="12" y="19" font-family="Helvetica Neue,Arial,sans-serif" font-size="9" font-weight="700" fill="#1a1714" text-anchor="middle">GA</text>
+  <text x="30" y="11" font-family="Helvetica Neue,Arial,sans-serif" font-size="7" font-weight="700" fill="#1a1714" letter-spacing="0.5">GENERAL</text>
+  <text x="30" y="21" font-family="Helvetica Neue,Arial,sans-serif" font-size="7" font-weight="700" fill="#1a1714" letter-spacing="0.5">ASSEMBLY</text>
+</svg>
+    </div>    <div class="tb-item" title="Above the Fold">
+      <img data-slot="Above the Fold" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Above the Fold" style="max-width:140px;max-height:38px;width:auto;height:auto;object-fit:contain;display:block;max-height:52px;max-width:80px;">
+    </div>    <div class="tb-item" title="Sonder">
+      <img data-slot="Sonder" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Sonder" style="max-width:140px;max-height:38px;width:auto;height:auto;object-fit:contain;display:block;max-height:38px;max-width:38px;">
+    </div>    <div class="tb-item" title="IWC Schaffhausen">
+      <svg viewBox="0 0 88 34" xmlns="http://www.w3.org/2000/svg" aria-label="IWC Schaffhausen" style="height:32px;width:auto;">
+  <text x="44" y="23" font-family="Didot,Bodoni MT,Georgia,serif" font-size="26" font-weight="300" fill="#1a1714" text-anchor="middle" letter-spacing="3">IWC</text>
+  <text x="44" y="32" font-family="Helvetica Neue,Arial,sans-serif" font-size="5" font-weight="400" fill="#1a1714" text-anchor="middle" letter-spacing="2.2">SCHAFFHAUSEN</text>
+</svg>
+    </div>    <div class="tb-item" title="Nordstrom">
+      <img data-slot="Nordstrom" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Nordstrom" style="max-width:140px;max-height:38px;width:auto;height:auto;object-fit:contain;display:block;max-width:130px;">
+    </div>    <div class="tb-item" title="Divi">
+      <svg viewBox="0 0 58 22" xmlns="http://www.w3.org/2000/svg" aria-label="Divi" style="height:20px;width:auto;">
+  <text x="0" y="18" font-family="Helvetica Neue,Arial,sans-serif" font-size="20" font-weight="700" fill="#1a1714" letter-spacing="-0.3">Divi</text>
+</svg>
+    </div>  </div>
+</div>
+</div>
+
+<!-- PAGES (revealed on nav click) -->
+<div class="page-section" id="page-work">
+<!-- WORK -->
+<section id="work">
+  <div class="section-bar">
+    <span class="section-bar-label">Selected Work</span>
+    <span class="section-bar-meta">12 projects</span>
+  </div>
+  <div class="work-list">
+<div class="wr"><div class="wr-img-col"><div class="cs" id="cs-msft" data-current="0">
+  <div class="cs-slide active" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/MSFT_FlexibleFurniture.png" data-lb-alt="Microsoft Flexible Design System" data-lb-cap="Flexible Design System · 2023"><img data-slot="Microsoft Flexible Design System" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/MSFT_FlexibleFurniture.png" alt="Microsoft Flexible Design System" class="cs-img"><div class="cs-cap">Flexible Design System · 2023</div></div>
+  <div class="cs-slide" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/MSFT_FlexibleFurniture3.png" data-lb-alt="Microsoft Flexible Design System — configuration" data-lb-cap="Flexible Design System — configuration · 2023"><img data-slot="Microsoft Flexible Design System — configuration" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/MSFT_FlexibleFurniture3.png" alt="Microsoft Flexible Design System — configuration" class="cs-img"><div class="cs-cap">Flexible Design System — configuration · 2023</div></div>
+  <div class="cs-slide" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/MSFT_50th.png" data-lb-alt="Microsoft 50th anniversary campaign" data-lb-cap="Microsoft 50th Anniversary campaign · 2025"><img data-slot="Microsoft 50th anniversary campaign" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/MSFT_50th.png" alt="Microsoft 50th anniversary campaign" class="cs-img"><div class="cs-cap">Microsoft 50th Anniversary campaign · 2025</div></div>
+  <button class="cs-prev" aria-label="Previous">‹</button>
+  <button class="cs-next" aria-label="Next">›</button>
+  <div class="cs-dots"><button class="cs-dot cs-dot--on" data-idx="0" aria-label="Image 1"></button><button class="cs-dot" data-idx="1" aria-label="Image 2"></button><button class="cs-dot" data-idx="2" aria-label="Image 3"></button></div>
+</div></div><div class="wr-txt-col">
+      <span class="wr-tag">Product Design &amp; Global Campaigns</span>
+      <span class="wr-title">Microsoft</span>
+      <p class="wr-desc">Led product design strategy and global campaign launches across Microsoft's commercial and enterprise portfolio — spanning the Flexible Design System (a modular event furniture ecosystem deployed globally for partner demos and field events), the Microsoft 50th Anniversary campaign, video production, executive presentations, and large-scale activations. Operated as embedded creative director across product, field marketing, and events teams.</p>
+      <div class="wr-foot"><span class="wr-meta">Microsoft · 2018–2023</span><span class="wr-arr">↗</span></div>
+    </div></div>
+<div class="wr"><div class="wr-txt-col">
+      <span class="wr-tag">Website Campaigns &amp; Business Transformation</span>
+      <span class="wr-title">VML / Acura</span>
+      <p class="wr-desc">Website campaigns and digital strategy for Acura.com — and business transformation work across VML's ecommerce and enterprise lines of business.</p>
+      <div class="wr-foot"><span class="wr-meta">VML · 2009–2012</span><span class="wr-arr">↗</span></div>
+    </div><div class="wr-img-col"><div class="cs" id="cs-vml" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="VML Acura campaign work" data-lb-cap="Acura.com campaigns · placeholder"><img data-slot="VML Acura campaign work" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="VML Acura campaign work" class="cs-img"><div class="cs-cap">Acura.com campaigns · placeholder</div></div>
+</div></div></div>
+<div class="wr"><div class="wr-img-col"><div class="cs" id="cs-amazon" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Amazon Go Grocery basket of fresh produce" data-lb-cap="Amazon Go Grocery · 2020"><img data-slot="Amazon Go Grocery basket of fresh produce" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Amazon Go Grocery basket of fresh produce" class="cs-img"><div class="cs-cap">Amazon Go Grocery · 2020</div></div>
+</div></div><div class="wr-txt-col">
+      <span class="wr-tag">Product Launch</span>
+      <span class="wr-title">Amazon Go Grocery</span>
+      <p class="wr-desc">Global launch strategy and brand narrative for Amazon's first cashierless grocery store — a first-of-its-kind retail experience redefining how people shop for everyday essentials.</p>
+      <div class="wr-foot"><span class="wr-meta">Amazon · 2020</span><span class="wr-arr">↗</span></div>
+    </div></div>
+<div class="wr"><div class="wr-txt-col">
+      <span class="wr-tag">Guest Experience &amp; Research</span>
+      <span class="wr-title">Sonder</span>
+      <p class="wr-desc">Guest experience research and service expansion strategy for Sonder — uncovering unmet needs across the guest journey and defining a roadmap for elevated amenities, touchpoints, and programming to deepen loyalty across the brand's global portfolio of apartment-hotel properties.</p>
+      <div class="wr-foot"><span class="wr-meta">Sonder · 2022</span><span class="wr-arr">↗</span></div>
+    </div><div class="wr-img-col"><div class="cs" id="cs-sonder" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Sonder brand identity" data-lb-cap="Sonder brand · 2022"><img data-slot="Sonder brand identity" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Sonder brand identity" class="cs-img"><div class="cs-cap">Sonder brand · 2022</div></div>
+  <div class="cs-slide" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Sonder property" data-lb-cap="Guest property · placeholder"><img data-slot="Sonder property" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Sonder property" class="cs-img"><div class="cs-cap">Guest property · placeholder</div></div>
+  <button class="cs-prev" aria-label="Previous">‹</button>
+  <button class="cs-next" aria-label="Next">›</button>
+  <div class="cs-dots"><button class="cs-dot cs-dot--on" data-idx="0" aria-label="Image 1"></button><button class="cs-dot" data-idx="1" aria-label="Image 2"></button></div>
+</div></div></div>
+<div class="wr"><div class="wr-img-col"><div class="cs" id="cs-gates" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Balance the Equation program visual" data-lb-cap="Program visual · placeholder"><img data-slot="Balance the Equation program visual" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Balance the Equation program visual" class="cs-img"><div class="cs-cap">Program visual · placeholder</div></div>
+</div></div><div class="wr-txt-col">
+      <span class="wr-tag">Program Launch</span>
+      <span class="wr-title">Balance the Equation</span>
+      <p class="wr-desc">Brand strategy and launch for the Bill &amp; Melinda Gates Foundation's first-ever Grand Challenge focused on U.S. education — redesigning Algebra 1 for Black, Latino, English Learner, and low-income students in 7th–9th grade. The initiative offered $100K planning grants and up to $1M pilot study grants, positioning mathematics equity as a civil rights imperative.</p>
+      <div class="wr-foot"><span class="wr-meta">Bill &amp; Melinda Gates Foundation · 2021</span><span class="wr-arr">↗</span></div>
+    </div></div>
+<div class="wr"><div class="wr-txt-col">
+      <span class="wr-tag">Research &amp; UX Strategy</span>
+      <span class="wr-title">Divi</span>
+      <p class="wr-desc">Moderated user research and UX strategy for the scalp care brand's DTC platform — conducting in-depth interviews and usability studies to surface friction in the purchase journey, then translating findings into prioritized product improvements, content strategy, and onboarding flows.</p>
+      <div class="wr-foot"><span class="wr-meta">Divi · 2022</span><span class="wr-arr">↗</span></div>
+    </div><div class="wr-img-col"><div class="cs" id="cs-divi" data-current="0">
+  <div class="cs-slide active" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image3.png" data-lb-alt="Divi UX research artifact" data-lb-cap="Research artifact · 2022"><img data-slot="Divi UX research artifact" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image3.png" alt="Divi UX research artifact" class="cs-img"><div class="cs-cap">Research artifact · 2022</div></div>
+  <div class="cs-slide" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image4.png" data-lb-alt="Divi UX research artifact" data-lb-cap="Research artifact · 2022"><img data-slot="Divi UX research artifact" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image4.png" alt="Divi UX research artifact" class="cs-img"><div class="cs-cap">Research artifact · 2022</div></div>
+  <div class="cs-slide" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image5.png" data-lb-alt="Divi UX research artifact" data-lb-cap="Research artifact · 2022"><img data-slot="Divi UX research artifact" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image5.png" alt="Divi UX research artifact" class="cs-img"><div class="cs-cap">Research artifact · 2022</div></div>
+  <div class="cs-slide" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image7.png" data-lb-alt="Divi UX research artifact" data-lb-cap="Research artifact · 2022"><img data-slot="Divi UX research artifact" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Divi_Image7.png" alt="Divi UX research artifact" class="cs-img"><div class="cs-cap">Research artifact · 2022</div></div>
+  <button class="cs-prev" aria-label="Previous">‹</button>
+  <button class="cs-next" aria-label="Next">›</button>
+  <div class="cs-dots"><button class="cs-dot cs-dot--on" data-idx="0" aria-label="Image 1"></button><button class="cs-dot" data-idx="1" aria-label="Image 2"></button><button class="cs-dot" data-idx="2" aria-label="Image 3"></button><button class="cs-dot" data-idx="3" aria-label="Image 4"></button></div>
+</div></div></div>
+<div class="wr"><div class="wr-img-col"><div class="cs" id="cs-meta" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Meta Responsible Innovation Dimensions framework" data-lb-cap="RI Dimensions framework · 2021"><img data-slot="Meta Responsible Innovation Dimensions framework" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Meta Responsible Innovation Dimensions framework" class="cs-img"><div class="cs-cap">RI Dimensions framework · 2021</div></div>
+</div></div><div class="wr-txt-col">
+      <span class="wr-tag">Workshop Program</span>
+      <span class="wr-title">Responsible Innovation</span>
+      <p class="wr-desc">Designed and facilitated Meta's Responsible Innovation Dimensions framework — a first-of-its-kind program embedding ethical design thinking across product teams, mapping company principles to nine dimensions of responsible technology.</p>
+      <div class="wr-foot"><span class="wr-meta">Meta · 2021</span><span class="wr-arr">↗</span></div>
+    </div></div>
+<div class="wr"><div class="wr-txt-col">
+      <span class="wr-tag">Brand &amp; Environmental Design</span>
+      <span class="wr-title">Jazz at Lincoln Center</span>
+      <p class="wr-desc">Signage design development for the Frederick P. Rose Hall public space redesign — translating the Jazz at Lincoln Center identity into a complete environmental wayfinding system.</p>
+      <div class="wr-foot"><span class="wr-meta">Jazz at Lincoln Center · Pentagram · 2014</span><span class="wr-arr">↗</span></div>
+    </div><div class="wr-img-col"><div class="cs" id="cs-jazz" data-current="0">
+  <div class="cs-slide active" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Jazz_Image5.png" data-lb-alt="Jazz at Lincoln Center signage" data-lb-cap="Environmental signage · 2014"><img data-slot="Jazz at Lincoln Center signage" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Jazz_Image5.png" alt="Jazz at Lincoln Center signage" class="cs-img"><div class="cs-cap">Environmental signage · 2014</div></div>
+  <div class="cs-slide" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Jazz_Image6.png" data-lb-alt="Jazz at Lincoln Center signage" data-lb-cap="Environmental signage · 2014"><img data-slot="Jazz at Lincoln Center signage" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Jazz_Image6.png" alt="Jazz at Lincoln Center signage" class="cs-img"><div class="cs-cap">Environmental signage · 2014</div></div>
+  <div class="cs-slide" data-lb-src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Jazz_Image8.png" data-lb-alt="Jazz at Lincoln Center signage" data-lb-cap="Environmental signage · 2014"><img data-slot="Jazz at Lincoln Center signage" src="https://raw.githubusercontent.com/schmidtykitty/angela-schmidt.com/main/Jazz_Image8.png" alt="Jazz at Lincoln Center signage" class="cs-img"><div class="cs-cap">Environmental signage · 2014</div></div>
+  <button class="cs-prev" aria-label="Previous">‹</button>
+  <button class="cs-next" aria-label="Next">›</button>
+  <div class="cs-dots"><button class="cs-dot cs-dot--on" data-idx="0" aria-label="Image 1"></button><button class="cs-dot" data-idx="1" aria-label="Image 2"></button><button class="cs-dot" data-idx="2" aria-label="Image 3"></button></div>
+</div></div></div>
+<div class="wr"><div class="wr-img-col"><div class="cs" id="cs-nordstrom" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Nordstrom Beauty Haven feathered signage" data-lb-cap="In-store signage · 2021"><img data-slot="Nordstrom Beauty Haven feathered signage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Nordstrom Beauty Haven feathered signage" class="cs-img"><div class="cs-cap">In-store signage · 2021</div></div>
+  <div class="cs-slide" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Nordstrom Beauty Haven salon interior" data-lb-cap="Salon interior · 2021"><img data-slot="Nordstrom Beauty Haven salon interior" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Nordstrom Beauty Haven salon interior" class="cs-img"><div class="cs-cap">Salon interior · 2021</div></div>
+  <button class="cs-prev" aria-label="Previous">‹</button>
+  <button class="cs-next" aria-label="Next">›</button>
+  <div class="cs-dots"><button class="cs-dot cs-dot--on" data-idx="0" aria-label="Image 1"></button><button class="cs-dot" data-idx="1" aria-label="Image 2"></button></div>
+</div></div><div class="wr-txt-col">
+      <span class="wr-tag">Program Launch</span>
+      <span class="wr-title">Nordstrom Beauty Haven</span>
+      <p class="wr-desc">Concept, launch strategy, and brand narrative for Nordstrom's Beauty Haven in partnership with POPSUGAR — a first-of-its-kind in-store beauty services experience redefining the retail beauty category.</p>
+      <div class="wr-foot"><span class="wr-meta">Nordstrom · 2021</span><span class="wr-arr">↗</span></div>
+    </div></div>
+<div class="wr"><div class="wr-txt-col">
+      <span class="wr-tag">Content &amp; Editorial Strategy</span>
+      <span class="wr-title">IWC &amp; Montblanc</span>
+      <p class="wr-desc">Content strategy and editorial direction for two of Europe's most storied luxury maisons at AKQA. For IWC Schaffhausen, developed The Journal — a long-form digital editorial platform connecting watchmaking heritage, lifestyle, and sustainability. For Montblanc, led digital campaign strategy for the Summit smartwatch launch.</p>
+      <div class="wr-foot"><span class="wr-meta">AKQA · IWC · Montblanc · 2015–2018</span><span class="wr-arr">↗</span></div>
+    </div><div class="wr-img-col"><div class="cs" id="cs-iwc" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="IWC The Journal editorial platform" data-lb-cap="IWC The Journal · 2015–2018"><img data-slot="IWC The Journal editorial platform" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="IWC The Journal editorial platform" class="cs-img"><div class="cs-cap">IWC The Journal · 2015–2018</div></div>
+  <div class="cs-slide" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Montblanc Summit smartwatch campaign" data-lb-cap="Montblanc Summit campaign · 2015–2018"><img data-slot="Montblanc Summit smartwatch campaign" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Montblanc Summit smartwatch campaign" class="cs-img"><div class="cs-cap">Montblanc Summit campaign · 2015–2018</div></div>
+  <button class="cs-prev" aria-label="Previous">‹</button>
+  <button class="cs-next" aria-label="Next">›</button>
+  <div class="cs-dots"><button class="cs-dot cs-dot--on" data-idx="0" aria-label="Image 1"></button><button class="cs-dot" data-idx="1" aria-label="Image 2"></button></div>
+</div></div></div>
+<div class="wr"><div class="wr-img-col"><div class="cs" id="cs-sdn" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Seattle Design Nerds installation" data-lb-cap="Installation or event · placeholder"><img data-slot="Seattle Design Nerds installation" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Seattle Design Nerds installation" class="cs-img"><div class="cs-cap">Installation or event · placeholder</div></div>
+</div></div><div class="wr-txt-col">
+      <span class="wr-tag">Community Design</span>
+      <span class="wr-title">Seattle Design Nerds</span>
+      <p class="wr-desc">Co-founder and creative director of Seattle's grassroots design community — producing public installations, events, and experiences including <em>Dante's Disco</em>, a live cat tower group exhibition at the Museum of Museums, and large-scale inflatable installations at the Seattle Design Festival.</p>
+      <div class="wr-foot"><span class="wr-meta">Seattle Design Nerds · 2019 —</span><span class="wr-arr">↗</span></div>
+    </div></div>
+<div class="wr"><div class="wr-txt-col">
+      <span class="wr-tag">Event Launches &amp; Writing</span>
+      <span class="wr-title">Arcade Magazine</span>
+      <p class="wr-desc">Editorial contributor and event producer for the Pacific Northwest's leading architecture and design publication. Writing includes <em>Socially Dis-danced</em> — an essay on the spatial politics of pandemic distancing and how public space holds (or fails) community — as well as the "Design Your World" youth program.</p>
+      <div class="wr-foot"><span class="wr-meta">Arcade · 2020 —</span><span class="wr-arr">↗</span></div>
+    </div><div class="wr-img-col"><div class="cs" id="cs-arcade" data-current="0">
+  <div class="cs-slide active" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Arcade Magazine editorial" data-lb-cap="Editorial · placeholder"><img data-slot="Arcade Magazine editorial" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Arcade Magazine editorial" class="cs-img"><div class="cs-cap">Editorial · placeholder</div></div>
+</div></div></div>
+  </div>
+</section>
+</div>
+<div class="page-section" id="page-studio">
+<!-- STUDIO -->
+<section id="studio" class="studio-gallery">
+  <div class="section-bar">
+    <span class="section-bar-label">Studio Practice</span>
+    <span class="section-bar-meta">Poets of Gesture · 2015 —</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="studio-hero">
+    <div class="studio-hero-img" style="background:var(--ink);display:flex;align-items:center;justify-content:center;"></div>
+    <div class="studio-hero-text">
+      <div>
+        <div class="studio-hero-supertitle">Studio Practice</div>
+        <div class="studio-hero-title">INSATIABLY<br><em>CURIOUS</em></div>
+      </div>
+      <p class="studio-hero-desc">Angela explores the weird, the wonderful, the <em>woah</em> — capturing the energy and elegance of human forms in motion. A conversation between movement and meaning, where light, gesture, and space collide with synchronicity and absurdity. Experimenting to understand, pressing against the edges of disciplines, challenging the assumed. Morality, process, disruption — all shifting states. Not just to create, but to unsettle. To reimagine what existed before.</p>
+      <div class="studio-hero-tagline">Feelings over facts · Grain over gloss · Movement will save us all</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Textile &amp; Embroidery</div>
+        <div class="sg-series-title">Napkin Series</div>
+        <p class="sg-series-desc">‘Release ya Wiggle’ as Beyoncé would say. Set of four cotton napkins embroidered with some weirdos feeling themselves and contributing to the no more paper towels revolution. Get it. <a href="https://www.instagram.com/explore/tags/thislifeislikeadancefloor/" target="_blank" rel="noopener" class="sg-hashtag">#thislifeislikeadancefloor</a></p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2022 —</div>
+    </div>
+    <div class="sg-strip" id="sg-napkins">
+      <div class="sg-track" id="sgt-napkins" data-count="7" data-idx="0">
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Inspo to progress — line drawing and embroidery in progress" data-lb-cap="Inspo to progress — line drawing and embroidery in progress">
+          <img data-slot="Inspo to progress — line drawing and embroidery in progress" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Inspo to progress — line drawing and embroidery in progress" loading="lazy">
+          <div class="sg-frame-cap">Inspo to progress — line drawing and embroidery in progress</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Napkin series — arabesque in white thread" data-lb-cap="Napkin series — arabesque in white thread">
+          <img data-slot="Napkin series — arabesque in white thread" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Napkin series — arabesque in white thread" loading="lazy">
+          <div class="sg-frame-cap">Napkin series — arabesque in white thread</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Napkin series — grand battement" data-lb-cap="Napkin series — grand battement">
+          <img data-slot="Napkin series — grand battement" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Napkin series — grand battement" loading="lazy">
+          <div class="sg-frame-cap">Napkin series — grand battement</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Napkin series — attitude" data-lb-cap="Napkin series — attitude">
+          <img data-slot="Napkin series — attitude" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Napkin series — attitude" loading="lazy">
+          <div class="sg-frame-cap">Napkin series — attitude</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Napkin series — standing figure" data-lb-cap="Napkin series — standing figure">
+          <img data-slot="Napkin series — standing figure" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Napkin series — standing figure" loading="lazy">
+          <div class="sg-frame-cap">Napkin series — standing figure</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Napkin series — three dancers, group" data-lb-cap="Napkin series — three dancers, group">
+          <img data-slot="Napkin series — three dancers, group" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Napkin series — three dancers, group" loading="lazy">
+          <div class="sg-frame-cap">Napkin series — three dancers, group</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Napkin series — jeté leap" data-lb-cap="Napkin series — jeté leap">
+          <img data-slot="Napkin series — jeté leap" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Napkin series — jeté leap" loading="lazy">
+          <div class="sg-frame-cap">Napkin series — jeté leap</div>
+        </div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">‹</button><button class="sg-next" aria-label="Next">›</button>
+      <div class="sg-counter" id="sgc-napkins">1 / 7</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Ceramic Sculpture</div>
+        <div class="sg-series-title">Positions</div>
+        <p class="sg-series-desc">Switching Positions. The 5 foundational positions of ballet rendered as sultry lacquered candlestick boots. Legs a flame for days. <a href="https://www.instagram.com/explore/tags/thislifeislikeadancefloor/" target="_blank" rel="noopener" class="sg-hashtag">#thislifeislikeadancefloor</a></p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2023</div>
+    </div>
+    <div class="sg-strip" id="sg-positions">
+      <div class="sg-track" id="sgt-positions" data-count="5" data-idx="0">
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="First — ceramic foot sculpture, first position" data-lb-cap="First — ceramic foot sculpture, first position">
+          <img data-slot="First — ceramic foot sculpture, first position" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="First — ceramic foot sculpture, first position" loading="lazy">
+          <div class="sg-frame-cap">First — ceramic foot sculpture, first position</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Second — ceramic foot sculpture, second position" data-lb-cap="Second — ceramic foot sculpture, second position">
+          <img data-slot="Second — ceramic foot sculpture, second position" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Second — ceramic foot sculpture, second position" loading="lazy">
+          <div class="sg-frame-cap">Second — ceramic foot sculpture, second position</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Third — ceramic foot sculpture, third position" data-lb-cap="Third — ceramic foot sculpture, third position">
+          <img data-slot="Third — ceramic foot sculpture, third position" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Third — ceramic foot sculpture, third position" loading="lazy">
+          <div class="sg-frame-cap">Third — ceramic foot sculpture, third position</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Fourth — ceramic foot sculpture, fourth position" data-lb-cap="Fourth — ceramic foot sculpture, fourth position">
+          <img data-slot="Fourth — ceramic foot sculpture, fourth position" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Fourth — ceramic foot sculpture, fourth position" loading="lazy">
+          <div class="sg-frame-cap">Fourth — ceramic foot sculpture, fourth position</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Fifth — ceramic foot sculpture, fifth position" data-lb-cap="Fifth — ceramic foot sculpture, fifth position">
+          <img data-slot="Fifth — ceramic foot sculpture, fifth position" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Fifth — ceramic foot sculpture, fifth position" loading="lazy">
+          <div class="sg-frame-cap">Fifth — ceramic foot sculpture, fifth position</div>
+        </div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">‹</button><button class="sg-next" aria-label="Next">›</button>
+      <div class="sg-counter" id="sgc-positions">1 / 5</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Print &amp; Photography</div>
+        <div class="sg-series-title">Death Rehearsal &amp; Other Works</div>
+        <p class="sg-series-desc">Drawing inspiration from John Baldessari — because I love being a smart-ass and wordplay. How this relates to dance? Not super linear — and maybe it doesn't have to be. Phrases told throughout barre or wearing new pointe shoes, catching that slippery-ass piece of Marley. There's always that one spot.</p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2021 —</div>
+    </div>
+    <div class="sg-strip" id="sg-print">
+      <div class="sg-track" id="sgt-print" data-count="3" data-idx="0">
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Brush with Death — framed archival print" data-lb-cap="Brush with Death — framed archival print">
+          <img data-slot="Brush with Death — framed archival print" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Brush with Death — framed archival print" loading="lazy">
+          <div class="sg-frame-cap">Brush with Death — framed archival print</div>
+        </div>
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="I Support You — broken chair on studio floor" data-lb-cap="I Support You · Poets of Gesture">
+          <img data-slot="I Support You — broken chair on studio floor" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="I Support You — broken chair on studio floor" loading="lazy">
+          <div class="sg-frame-cap">I Support You</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Tessellation — pointe shoe grid study" data-lb-cap="Tessellation — pointe shoe grid study">
+          <img data-slot="Tessellation — pointe shoe grid study" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Tessellation — pointe shoe grid study" loading="lazy">
+          <div class="sg-frame-cap">Tessellation — pointe shoe grid study</div>
+        </div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">‹</button><button class="sg-next" aria-label="Next">›</button>
+      <div class="sg-counter" id="sgc-print">1 / 3</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Brand &amp; Merch</div>
+        <div class="sg-series-title">Poets of Gesture Studio</div>
+        <p class="sg-series-desc">Rehearsal can be the death of you. Movement will save us all. Brand identity, posters, and merchandise for Poets of Gesture. <a href="https://www.instagram.com/explore/tags/thislifeislikeadancefloor/" target="_blank" rel="noopener" class="sg-hashtag">#thislifeislikeadancefloor</a></p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2020 —</div>
+    </div>
+    <div class="sg-strip" id="sg-brand">
+      <div class="sg-track" id="sgt-brand" data-count="6" data-idx="0">
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Feelings Over Facts — Fishnet" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Feelings Over Facts — Fishnet" loading="lazy"><div class="sg-frame-label">Feelings Over Facts</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Death Rehearsal — canvas tote bag" data-lb-cap="Death Rehearsal — canvas tote bag">
+          <img data-slot="Death Rehearsal — canvas tote bag" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Death Rehearsal — canvas tote bag" loading="lazy">
+          <div class="sg-frame-cap">Death Rehearsal — canvas tote bag</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Meditation is Preparation for Death — tee" data-lb-cap="Meditation is Preparation for Death — tee">
+          <img data-slot="Meditation is Preparation for Death — tee" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Meditation is Preparation for Death — tee" loading="lazy">
+          <div class="sg-frame-cap">Meditation is Preparation for Death — tee</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Poets of Gesture — Movement Will Save Us All poster" data-lb-cap="Poets of Gesture — Movement Will Save Us All poster">
+          <img data-slot="Poets of Gesture — Movement Will Save Us All poster" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Poets of Gesture — Movement Will Save Us All poster" loading="lazy">
+          <div class="sg-frame-cap">Poets of Gesture — Movement Will Save Us All poster</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Poets of Gesture — Grain Over Gloss poster" data-lb-cap="Poets of Gesture — Grain Over Gloss poster">
+          <img data-slot="Poets of Gesture — Grain Over Gloss poster" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Poets of Gesture — Grain Over Gloss poster" loading="lazy">
+          <div class="sg-frame-cap">Poets of Gesture — Grain Over Gloss poster</div>
+        </div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Poets of Gesture — Feelings Over Facts / Concept &amp; Design Studio poster" data-lb-cap="Poets of Gesture — Feelings Over Facts / Concept &amp; Design Studio poster">
+          <img data-slot="Poets of Gesture — Feelings Over Facts / Concept &amp; Design Studio poster" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Poets of Gesture — Feelings Over Facts / Concept &amp; Design Studio poster" loading="lazy">
+          <div class="sg-frame-cap">Poets of Gesture — Feelings Over Facts / Concept &amp; Design Studio poster</div>
+        </div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">‹</button><button class="sg-next" aria-label="Next">›</button>
+      <div class="sg-counter" id="sgc-brand">1 / 5</div>
+    </div>
+  </div>
+
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Sculpture</div>
+        <div class="sg-series-title">Tough Love</div>
+        <p class="sg-series-desc">Foraged from San Sebastián, a city in the Basque Autonomous Community within Spain, and bound in a black leather and metal choker — this one-of-a-kind piece is an emblem for the connection between BDSM and ballet. Both are about the fine line between pain and pleasure, and the beauty of discipline. <a href="https://www.instagram.com/explore/tags/thislifeislikeadancefloor/" target="_blank" rel="noopener" class="sg-hashtag">#thislifeislikeadancefloor</a></p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2023</div>
+    </div>
+    <div class="sg-strip" id="sg-toughlove">
+      <div class="sg-track" id="sgt-toughlove" data-count="2" data-idx="0">
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Tough Love — buckle side, front view" data-lb-cap="Tough Love — buckle side, front view">
+          <img data-slot="Tough Love — buckle side, front view" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Tough Love — buckle side, front view" loading="lazy">
+          <div class="sg-frame-cap">Tough Love — buckle side, front view</div>
+        </div>
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Tough Love — leather strap, back view" data-lb-cap="Tough Love — leather strap, back view">
+          <img data-slot="Tough Love — leather strap, back view" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Tough Love — leather strap, back view" loading="lazy">
+          <div class="sg-frame-cap">Tough Love — leather strap, back view</div>
+        </div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">‹</button><button class="sg-next" aria-label="Next">›</button>
+      <div class="sg-counter" id="sgc-toughlove">1 / 2</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Textile &amp; Print</div>
+        <div class="sg-series-title">Blankets of Dancers</div>
+        <p class="sg-series-desc">Blanket forms. Dynamic registrations of bodies in motion and at rest. The irony is when I’m being loafy, I can pretend I’m still moving my (mostly) graceful, mobile body. <a href="https://www.instagram.com/explore/tags/thislifeislikeadancefloor/" target="_blank" rel="noopener" class="sg-hashtag">#thislifeislikeadancefloor</a></p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2024</div>
+    </div>
+    <div class="sg-strip" id="sg-blankets">
+      <div class="sg-track" id="sgt-blankets" data-count="5" data-idx="0">
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Blankets of Dancers — arabesque silhouette, full figure" data-lb-cap="Blankets of Dancers — arabesque silhouette, full figure">
+          <img data-slot="Blankets of Dancers — arabesque silhouette, full figure" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Blankets of Dancers — arabesque silhouette, full figure" loading="lazy">
+          <div class="sg-frame-cap">Blankets of Dancers — arabesque silhouette, full figure</div>
+        </div>
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Blankets of Dancers — figure rising, arms overhead" data-lb-cap="Blankets of Dancers — figure rising, arms overhead">
+          <img data-slot="Blankets of Dancers — figure rising, arms overhead" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Blankets of Dancers — figure rising, arms overhead" loading="lazy">
+          <div class="sg-frame-cap">Blankets of Dancers — figure rising, arms overhead</div>
+        </div>
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Blankets of Dancers — face and torso, close detail" data-lb-cap="Blankets of Dancers — face and torso, close detail">
+          <img data-slot="Blankets of Dancers — face and torso, close detail" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Blankets of Dancers — face and torso, close detail" loading="lazy">
+          <div class="sg-frame-cap">Blankets of Dancers — face and torso, close detail</div>
+        </div>
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Blankets of Dancers — two figures, mirrored" data-lb-cap="Blankets of Dancers — two figures, mirrored">
+          <img data-slot="Blankets of Dancers — two figures, mirrored" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Blankets of Dancers — two figures, mirrored" loading="lazy">
+          <div class="sg-frame-cap">Blankets of Dancers — two figures, mirrored</div>
+        </div>
+        <div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Blankets of Dancers — attitude en pointe, classical pose" data-lb-cap="Blankets of Dancers — attitude en pointe, classical pose">
+          <img data-slot="Blankets of Dancers — attitude en pointe, classical pose" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Blankets of Dancers — attitude en pointe, classical pose" loading="lazy">
+          <div class="sg-frame-cap">Blankets of Dancers — attitude en pointe, classical pose</div>
+        </div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">‹</button><button class="sg-next" aria-label="Next">›</button>
+      <div class="sg-counter" id="sgc-blankets">1 / 5</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Book Art &amp; Collage</div>
+        <div class="sg-series-title">Twisted Collage Book</div>
+        <p class="sg-series-desc">It&#x2019;s often preached, &#x2018;You create your own reality,&#x2019; and that&#x2019;s precisely what collage&#x2014;the irrational juxtaposition or the bringing together of radically incompatible things&#x2014;allows in an immediate, tangible way. Collage allows my mind to rearrange reality and explore the confines of ordinary things. This practice expands my thinking into other aspects of living, promoting reflective questions around &#x2018;What can be?&#x2019;, &#x2018;Why not&#x2026;?&#x2019;, and &#x2018;What if I&#x2026;?&#x2019; <a href="https://www.instagram.com/explore/tags/surrealism/" target="_blank" rel="noopener" class="sg-hashtag">#surrealism</a> <a href="https://www.instagram.com/explore/tags/handcut/" target="_blank" rel="noopener" class="sg-hashtag">#handcut</a> <a href="https://www.instagram.com/explore/tags/collage/" target="_blank" rel="noopener" class="sg-hashtag">#collage</a> <a href="https://www.instagram.com/explore/tags/extraweird/" target="_blank" rel="noopener" class="sg-hashtag">#extraweird</a></p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2024 —</div>
+    </div>
+    <div class="sg-strip" id="sg-collage">
+      <div class="sg-track" id="sgt-collage" data-count="6" data-idx="0">
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Extra Weird — cover" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Extra Weird — cover" loading="lazy"><div class="sg-frame-label">Extra Weird — cover</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Sentimental Reasons spread" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Sentimental Reasons spread" loading="lazy"><div class="sg-frame-label">Sentimental Reasons spread</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Twisted Opportunity" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Twisted Opportunity" loading="lazy"><div class="sg-frame-label">Twisted Opportunity</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Cherries &amp; Space Woman" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Cherries &amp; Space Woman" loading="lazy"><div class="sg-frame-label">Cherries &amp; Space Woman</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Geisha &amp; Diver" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Geisha &amp; Diver" loading="lazy"><div class="sg-frame-label">Geisha &amp; Diver</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Ritual / Slowing Down" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Ritual / Slowing Down" loading="lazy"><div class="sg-frame-label">Ritual / Slowing Down</div></div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">&#x2039;</button><button class="sg-next" aria-label="Next">&#x203a;</button>
+      <div class="sg-counter" id="sgc-collage">1 / 6</div>
+    </div>
+  </div>
+
+
+  <div class="sg-row">
+    <div class="sg-label-col">
+      <div>
+        <div class="sg-series-tag">Sculpture &amp; Craft</div>
+        <div class="sg-series-title">Lights of Passage</div>
+        <p class="sg-series-desc"><em>Lights of Passage</em> &mdash; Pointe shoes &amp; mirrored tiles. I&#x2019;ve lost count of the nights I&#x2019;ve spent under a mirror ball&#x2014;seeking solace, slipping into reverie, or finding myself there by chance. The dance floor has always meant something to me&#x2014;be it the jewel-box-like ballet studio or the abyss of a nightclub. In this piece, I wanted to bring together my two worlds of dance, taking a pair of my rigid pointe shoes and transforming them into lightness through the application of mirrored tiles. The shoes, once symbols of discipline and endurance, become something else entirely&#x2014;icons not to be suffered in, but to be worshipped under. They become a beacon of self-expression, guiding movement, music, and the endless moments of letting go. <a href="https://www.instagram.com/explore/tags/thislifeislikeadancefloor/" target="_blank" rel="noopener" class="sg-hashtag">#thislifeislikeadancefloor</a></p>
+      </div>
+      <div class="sg-series-meta">Poets of Gesture · 2024 —</div>
+    </div>
+    <div class="sg-strip" id="sg-disco">
+      <div class="sg-track" id="sgt-disco" data-count="5" data-idx="0">
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Lights of Passage — overhead" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Lights of Passage — overhead" loading="lazy"><div class="sg-frame-label">Lights of Passage — overhead</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Lights of Passage — side" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Lights of Passage — side" loading="lazy"><div class="sg-frame-label">Lights of Passage — side</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Lights of Passage — at rest" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Lights of Passage — at rest" loading="lazy"><div class="sg-frame-label">Lights of Passage — at rest</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Lights of Passage — soles" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Lights of Passage — soles" loading="lazy"><div class="sg-frame-label">Lights of Passage — soles</div></div>
+<div class="sg-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="><img data-slot="Work in progress" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Work in progress" loading="lazy"><div class="sg-frame-label">Work in progress</div></div>
+      </div>
+      <button class="sg-prev" aria-label="Previous">&#x2039;</button><button class="sg-next" aria-label="Next">&#x203a;</button>
+      <div class="sg-counter" id="sgc-disco">1 / 5</div>
+    </div>
+  </div>
+
+
+</section>
+</div>
+<div class="page-section" id="page-performance">
+<!-- PERFORMANCE -->
+<section id="performance">
+  <div class="section-bar">
+    <span class="section-bar-label">Performance</span>
+    <span class="section-bar-meta">2014 — 2023 · Seattle, New York, Hartford</span>
+  </div>
+
+  <div class="perf">
+
+    <!-- LEFT: bio + accordion -->
+    <div class="perf-left">
+      <div class="perf-bio">
+        <div class="perf-intro-label">The Body as First Language</div>
+        <p class="perf-bio-text">Reformed bunhead. Angela began dance at 13 at Michigan Classical Ballet, trained at Boston Ballet, The Kirov Academy, Burklyn Ballet Theatre, and Ballet Austin — and has performed with companies in Seattle, New York, and Hartford over a decade of professional work.</p>
+        <div class="perf-tags">
+          <span class="perf-tag">Ballet</span>
+          <span class="perf-tag">Contemporary</span>
+          <span class="perf-tag">Modern</span>
+          <span class="perf-tag">Partnering</span>
+          <span class="perf-tag">Improvisation</span>
+        </div>
+      </div>
+
+      <div class="perf-accordion">
+
+        <button class="perf-acc-trigger" data-target="acc-credits">
+          Selected Credits <span class="perf-acc-icon">+</span>
+        </button>
+        <div class="perf-acc-body" id="acc-credits">
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2023</span>
+            <span class="perf-credit-detail">The Guild Dance Company<span class="perf-credit-role">Dancer — Spring Collab w/ Radiance · Outpour Vocals · Seattle Girls Choir</span></span>
+          </div>
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2023</span>
+            <span class="perf-credit-detail">Burlesque Alice in Wonderland<span class="perf-credit-role">Dancer — Chandelier · Verlaine &amp; McCann Productions (8 shows)</span></span>
+          </div>
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2023</span>
+            <span class="perf-credit-detail">Dance Theatre Seattle<span class="perf-credit-role">Demi-Soloist — Waltz of the Stars</span></span>
+          </div>
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2022</span>
+            <span class="perf-credit-detail">Synergy New York<span class="perf-credit-role">Dancer — Erika Keller Choreography · NYC Center</span></span>
+          </div>
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2022</span>
+            <span class="perf-credit-detail">Jerboa Dance<span class="perf-credit-role">Dancer — Delirium (5 shows)</span></span>
+          </div>
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2021</span>
+            <span class="perf-credit-detail">Dance Theatre Seattle<span class="perf-credit-role">Corp Member — Swan Lake</span></span>
+          </div>
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2015</span>
+            <span class="perf-credit-detail">Jersey City Ballet<span class="perf-credit-role">Dancer — Ballet Showcase</span></span>
+          </div>
+          <div class="perf-credit-row">
+            <span class="perf-credit-year">2014</span>
+            <span class="perf-credit-detail">Albano Ballet Theatre<span class="perf-credit-role">Corp Member — Swan Lake (3 shows) · Hartford, CT</span></span>
+          </div>
+        </div>
+
+        <button class="perf-acc-trigger" data-target="acc-training">
+          Training <span class="perf-acc-icon">+</span>
+        </button>
+        <div class="perf-acc-body" id="acc-training">
+          <div class="perf-training-grid">
+            <div class="perf-training-item">
+              <div class="perf-training-school">Boston Ballet</div>
+              <div class="perf-training-detail">Summer Intensive · 2006 · Level 7</div>
+            </div>
+            <div class="perf-training-item">
+              <div class="perf-training-school">Ballet Austin</div>
+              <div class="perf-training-detail">Summer Intensive · 2007</div>
+            </div>
+            <div class="perf-training-item">
+              <div class="perf-training-school">The Kirov Academy</div>
+              <div class="perf-training-detail">Summer Intensive · 2005 · Washington D.C.</div>
+            </div>
+            <div class="perf-training-item">
+              <div class="perf-training-school">Burklyn Ballet Theatre</div>
+              <div class="perf-training-detail">Summer Intensive · 2004</div>
+            </div>
+            <div class="perf-training-item">
+              <div class="perf-training-school">Metropolitan Ballet Academy</div>
+              <div class="perf-training-detail">Vaganova training · Novi, MI</div>
+            </div>
+            <div class="perf-training-item">
+              <div class="perf-training-school">Also accepted to</div>
+              <div class="perf-training-detail">Houston Ballet · ABT Detroit · Joffrey Midwest · Ballet West</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: horizontal filmstrip -->
+    <div class="perf-filmstrip" id="perf-filmstrip">
+      <div class="perf-filmstrip-track" id="perf-track">
+        <div class="perf-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Angela Schmidt in spotlight" data-lb-cap="Poets of Gesture · Seattle">
+          <img data-slot="Angela Schmidt in spotlight" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Angela Schmidt in spotlight">
+          <div class="perf-frame-label">Poets of Gesture · Seattle · 2023</div>
+        </div>
+        <div class="perf-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Performance — high kick" data-lb-cap="Poets of Gesture · 2023">
+          <img data-slot="Performance — high kick" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Performance — high kick">
+          <div class="perf-frame-label">Poets of Gesture · 2023</div>
+        </div>
+        <div class="perf-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Burlesque Alice in Wonderland — Chandelier" data-lb-cap="Burlesque Alice in Wonderland · Chandelier · 2023">
+          <img data-slot="Burlesque Alice in Wonderland — Chandelier" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Burlesque Alice in Wonderland — Chandelier">
+          <div class="perf-frame-label">Burlesque Alice in Wonderland · Chandelier · 2023</div>
+        </div>
+        <div class="perf-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Performance — black lace dress" data-lb-cap="Dance Theatre Seattle · 2022">
+          <img data-slot="Performance — black lace dress" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Performance — black lace dress">
+          <div class="perf-frame-label">Dance Theatre Seattle · 2022</div>
+        </div>
+        <div class="perf-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Ensemble performance" data-lb-cap="Synergy New York · NYC Center · 2022">
+          <img data-slot="Ensemble performance" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Ensemble performance">
+          <div class="perf-frame-label">Synergy New York · NYC Center · 2022</div>
+        </div>
+        <div class="perf-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Performance — feather fan" data-lb-cap="Verlaine &amp; McCann Productions · 2022">
+          <img data-slot="Performance — feather fan" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Performance — feather fan">
+          <div class="perf-frame-label">Verlaine &amp; McCann Productions · 2022</div>
+        </div>
+        <div class="perf-frame" data-lb-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-lb-alt="Angela Schmidt — B&W studio" data-lb-cap="Studio · Seattle · 2023">
+          <img data-slot="Angela Schmidt — B&W studio" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Angela Schmidt — B&W studio">
+          <div class="perf-frame-label">Studio · Seattle · 2023</div>
+        </div>
+      </div>
+
+      <div class="perf-strip-counter" id="perf-counter">1 / 7</div>
+      <div class="perf-strip-nav">
+        <button class="perf-strip-btn" id="perf-prev" aria-label="Previous">‹</button>
+        <button class="perf-strip-btn" id="perf-next" aria-label="Next">›</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+<div class="page-section" id="page-about">
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="about-left">
+    <img data-slot="Pastel teacup drawing" class="about-teacup" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Pastel teacup drawing">
+    <div class="stat-block"><div class="stat-n">15</div><div class="stat-l">Years of practice</div></div>
+    <div class="stat-block"><div class="stat-n pk">3</div><div class="stat-l">Continents, one practice</div></div>
+    <div class="stat-block"><div class="stat-n yl">∞</div><div class="stat-l">A boundless reservoir</div></div>
+  </div>
+  <div class="about-right">
+    <div class="about-rotated">Seattle · Available · Open</div>
+    <p class="about-text">A <em>boundless reservoir</em> of all things poetic. I work at the intersection of research, strategy, and service design — planning and executing the work that uncovers user needs, pain points, and opportunities, then translating those findings into journeys, frameworks, and experiences that deliver on business goals. Insight and design as one discipline, not two.<br><br>
+I believe the best ideas live at the edge of disciplines — that a body in space knows things a spreadsheet never will, and that the most enduring brands are built on a kind of poetic logic: rigorous, felt, and impossible to copy.</p>
+    <div class="timeline">
+      <div class="t-row"><span class="t-yr">2024 —</span><span class="t-co">Microsoft</span><span class="t-role">Global Strategy &amp; Experiences Lead</span></div>
+      <div class="t-row"><span class="t-yr">2023 – 24</span><span class="t-co">VML</span><span class="t-role">Strategy Director</span></div>
+      <div class="t-row"><span class="t-yr">2021 – 22</span><span class="t-co">Sonder</span><span class="t-role">Design Research Manager</span></div>
+      <div class="t-row"><span class="t-yr">2017 – 19</span><span class="t-co">Nordstrom</span><span class="t-role">Senior Design Strategist</span></div>
+      <div class="t-row"><span class="t-yr">2015 —</span><span class="t-co">Poets of Gesture</span><span class="t-role">Founder &amp; Creative Director</span></div>
+    </div>
+  </div>
+</section>
+</div>
+<div class="page-section" id="page-contact">
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-bar">
+    <span class="section-bar-label">Contact</span>
+  </div>
+  <div class="contact-list">
+    <a class="c-row" href="mailto:poetsofgesture@gmail.com">
+      <div><div class="c-label">Email</div><div class="c-sub">poetsofgesture@gmail.com</div></div>
+      <span class="c-arr">↗</span>
+    </a>
+    <a class="c-row" href="https://substack.com/@schmidtykitty" target="_blank" rel="noopener">
+      <div><div class="c-label">Writing</div><div class="c-sub">substack.com/@schmidtykitty</div></div>
+      <span class="c-arr">↗</span>
+    </a>
+    <a class="c-row" href="https://www.linkedin.com/in/angelamschmidt/" target="_blank" rel="noopener">
+      <div><div class="c-label">LinkedIn</div><div class="c-sub">linkedin.com/in/angelamschmidt</div></div>
+      <span class="c-arr">↗</span>
+    </a>
+
+  </div>
+</section>
+</div>
+
+<!-- FOOTER always visible -->
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-name">Angela Schmidt · Poets of Gesture</span>
+  <span class="footer-copy">© 2026</span>
+</footer>
+
+
+<script>
+  (function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    let interval;
+
+    function next() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    // Start after initial hero animation settles
+    setTimeout(function() {
+      interval = setInterval(next, 3200);
+    }, 2000);
+
+    // Pause on hover
+    const panel = document.querySelector('.hero-image-panel');
+    if (panel) {
+      panel.addEventListener('mouseenter', function() { clearInterval(interval); });
+      panel.addEventListener('mouseleave', function() { interval = setInterval(next, 3200); });
+    }
+  })();
+
+
+  // ── CAROUSEL ──
+  document.querySelectorAll('.cs').forEach(function(cs) {
+    var slides = cs.querySelectorAll('.cs-slide');
+    var dots   = cs.querySelectorAll('.cs-dot');
+    if (slides.length <= 1) return;
+
+    function goTo(n) {
+      var cur = parseInt(cs.dataset.current) || 0;
+      slides[cur].classList.remove('active');
+      dots[cur] && dots[cur].classList.remove('cs-dot--on');
+      n = (n + slides.length) % slides.length;
+      slides[n].classList.add('active');
+      dots[n] && dots[n].classList.add('cs-dot--on');
+      cs.dataset.current = n;
+    }
+
+    var prev = cs.querySelector('.cs-prev');
+    var next = cs.querySelector('.cs-next');
+    prev && prev.addEventListener('click', function(e) { e.stopPropagation(); goTo(parseInt(cs.dataset.current) - 1); });
+    next && next.addEventListener('click', function(e) { e.stopPropagation(); goTo(parseInt(cs.dataset.current) + 1); });
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function(e) { e.stopPropagation(); goTo(i); });
+    });
+  });
+
+  // ── LIGHTBOX ──
+  var lb = document.getElementById('lb-overlay');
+  var lbImg = document.getElementById('lb-img');
+  var lbCap = document.getElementById('lb-cap');
+
+  // Collect all slides globally for arrow navigation in lightbox
+  var allSlides = [];
+  var lbIdx = 0;
+
+  document.querySelectorAll('.cs-slide').forEach(function(slide, i) {
+    allSlides.push(slide);
+    slide.addEventListener('click', function() {
+      lbIdx = i;
+      openLb();
+    });
+  });
+
+  function openLb() {
+    var slide = allSlides[lbIdx];
+    lbImg.src = slide.dataset.lbSrc;
+    lbImg.alt = slide.dataset.lbAlt;
+    lbCap.textContent = slide.dataset.lbCap;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+
+  document.getElementById('lb-prev').addEventListener('click', function() {
+    lbIdx = (lbIdx - 1 + allSlides.length) % allSlides.length;
+    openLb();
+  });
+
+  document.getElementById('lb-next').addEventListener('click', function() {
+    lbIdx = (lbIdx + 1) % allSlides.length;
+    openLb();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + allSlides.length) % allSlides.length; openLb(); }
+    if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % allSlides.length; openLb(); }
+  });
+
+
+  // ── PERFORMANCE FILMSTRIP ──
+  (function() {
+    var track    = document.getElementById('perf-track');
+    var frames   = track ? Array.from(track.querySelectorAll('.perf-frame')) : [];
+    var counter  = document.getElementById('perf-counter');
+    var btnPrev  = document.getElementById('perf-prev');
+    var btnNext  = document.getElementById('perf-next');
+    if (!track || !frames.length) return;
+
+    var idx = 0;
+    var frameW = 0;
+    var visibleW = 0;
+    var maxIdx = 0;
+
+    function measure() {
+      frameW   = frames[0].offsetWidth + 1; // +1 for border
+      visibleW = track.parentElement.offsetWidth;
+      maxIdx   = Math.max(0, frames.length - Math.floor(visibleW / frameW));
+    }
+
+    function goTo(n) {
+      measure();
+      idx = Math.max(0, Math.min(n, maxIdx));
+      track.style.transform = 'translateX(' + (-idx * frameW) + 'px)';
+      if (counter) counter.textContent = (idx + 1) + ' / ' + frames.length;
+    }
+
+    btnPrev && btnPrev.addEventListener('click', function() { goTo(idx - 1); });
+    btnNext && btnNext.addEventListener('click', function() { goTo(idx + 1); });
+    window.addEventListener('resize', function() { goTo(idx); });
+
+    // drag to scroll
+    var dragStart = 0, dragX = 0, isDragging = false;
+    track.addEventListener('mousedown', function(e) {
+      isDragging = true; dragStart = e.clientX; dragX = -idx * frameW;
+      track.classList.add('dragging');
+    });
+    window.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var delta = e.clientX - dragStart;
+      track.style.transform = 'translateX(' + (dragX + delta) + 'px)';
+    });
+    window.addEventListener('mouseup', function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('dragging');
+      measure();
+      var delta = e.clientX - dragStart;
+      goTo(idx - Math.round(delta / frameW));
+    });
+
+    // click frame → lightbox
+    frames.forEach(function(frame, i) {
+      frame.addEventListener('click', function(e) {
+        if (Math.abs(e.clientX - dragStart) > 5) return; // was a drag
+        var lb = document.getElementById('lb-overlay');
+        var lbImg = document.getElementById('lb-img');
+        var lbCap = document.getElementById('lb-cap');
+        if (!lb) return;
+        lbImg.src = frame.dataset.lbSrc;
+        lbImg.alt = frame.dataset.lbAlt;
+        lbCap.textContent = frame.dataset.lbCap;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // init after paint
+    requestAnimationFrame(function() { goTo(0); });
+  })();
+
+  // ── PERFORMANCE ACCORDION ──
+  document.querySelectorAll('.perf-acc-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = document.getElementById(btn.dataset.target);
+      var isOpen = btn.classList.contains('open');
+      // close all
+      document.querySelectorAll('.perf-acc-trigger').forEach(function(b) {
+        b.classList.remove('open');
+        var t = document.getElementById(b.dataset.target);
+        if (t) t.classList.remove('open');
+      });
+      // open this one if it was closed
+      if (!isOpen) {
+        btn.classList.add('open');
+        if (target) target.classList.add('open');
+      }
+    });
+  });
+
+</script>
+
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">×</button>
+  <button class="lb-prev" id="lb-prev" aria-label="Previous">‹</button>
+  <button class="lb-next" id="lb-next" aria-label="Next">›</button>
+  <div class="lb-img-wrap">
+    <img data-slot="" class="lb-img" id="lb-img" src="" alt="">
+  </div>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lb-overlay" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lb-close" aria-label="Close">×</button>
+  <button class="lb-prev"  id="lb-prev"  aria-label="Previous">‹</button>
+  <button class="lb-next"  id="lb-next"  aria-label="Next">›</button>
+  <div class="lb-img-wrap"><img data-slot="" class="lb-img" id="lb-img" src="" alt=""></div>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<script>
+
+  (function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    let interval;
+
+    function next() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    // Start after initial hero animation settles
+    setTimeout(function() {
+      interval = setInterval(next, 3200);
+    }, 2000);
+
+    // Pause on hover
+    const panel = document.querySelector('.hero-image-panel');
+    if (panel) {
+      panel.addEventListener('mouseenter', function() { clearInterval(interval); });
+      panel.addEventListener('mouseleave', function() { interval = setInterval(next, 3200); });
+    }
+  })();
+
+
+  // ── CAROUSEL ──
+  document.querySelectorAll('.cs').forEach(function(cs) {
+    var slides = cs.querySelectorAll('.cs-slide');
+    var dots   = cs.querySelectorAll('.cs-dot');
+    if (slides.length <= 1) return;
+
+    function goTo(n) {
+      var cur = parseInt(cs.dataset.current) || 0;
+      slides[cur].classList.remove('active');
+      dots[cur] && dots[cur].classList.remove('cs-dot--on');
+      n = (n + slides.length) % slides.length;
+      slides[n].classList.add('active');
+      dots[n] && dots[n].classList.add('cs-dot--on');
+      cs.dataset.current = n;
+    }
+
+    var prev = cs.querySelector('.cs-prev');
+    var next = cs.querySelector('.cs-next');
+    prev && prev.addEventListener('click', function(e) { e.stopPropagation(); goTo(parseInt(cs.dataset.current) - 1); });
+    next && next.addEventListener('click', function(e) { e.stopPropagation(); goTo(parseInt(cs.dataset.current) + 1); });
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function(e) { e.stopPropagation(); goTo(i); });
+    });
+  });
+
+  // ── LIGHTBOX ──
+  var lb = document.getElementById('lb-overlay');
+  var lbImg = document.getElementById('lb-img');
+  var lbCap = document.getElementById('lb-cap');
+
+  // Collect all slides globally for arrow navigation in lightbox
+  var allSlides = [];
+  var lbIdx = 0;
+
+  document.querySelectorAll('.cs-slide').forEach(function(slide, i) {
+    allSlides.push(slide);
+    slide.addEventListener('click', function() {
+      lbIdx = i;
+      openLb();
+    });
+  });
+
+  function openLb() {
+    var slide = allSlides[lbIdx];
+    lbImg.src = slide.dataset.lbSrc;
+    lbImg.alt = slide.dataset.lbAlt;
+    lbCap.textContent = slide.dataset.lbCap;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+
+  document.getElementById('lb-prev').addEventListener('click', function() {
+    lbIdx = (lbIdx - 1 + allSlides.length) % allSlides.length;
+    openLb();
+  });
+
+  document.getElementById('lb-next').addEventListener('click', function() {
+    lbIdx = (lbIdx + 1) % allSlides.length;
+    openLb();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + allSlides.length) % allSlides.length; openLb(); }
+    if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % allSlides.length; openLb(); }
+  });
+
+
+  // ── PERFORMANCE FILMSTRIP ──
+  (function() {
+    var track    = document.getElementById('perf-track');
+    var frames   = track ? Array.from(track.querySelectorAll('.perf-frame')) : [];
+    var counter  = document.getElementById('perf-counter');
+    var btnPrev  = document.getElementById('perf-prev');
+    var btnNext  = document.getElementById('perf-next');
+    if (!track || !frames.length) return;
+
+    var idx = 0;
+    var frameW = 0;
+    var visibleW = 0;
+    var maxIdx = 0;
+
+    function measure() {
+      frameW   = frames[0].offsetWidth + 1; // +1 for border
+      visibleW = track.parentElement.offsetWidth;
+      maxIdx   = Math.max(0, frames.length - Math.floor(visibleW / frameW));
+    }
+
+    function goTo(n) {
+      measure();
+      idx = Math.max(0, Math.min(n, maxIdx));
+      track.style.transform = 'translateX(' + (-idx * frameW) + 'px)';
+      if (counter) counter.textContent = (idx + 1) + ' / ' + frames.length;
+    }
+
+    btnPrev && btnPrev.addEventListener('click', function() { goTo(idx - 1); });
+    btnNext && btnNext.addEventListener('click', function() { goTo(idx + 1); });
+    window.addEventListener('resize', function() { goTo(idx); });
+
+    // drag to scroll
+    var dragStart = 0, dragX = 0, isDragging = false;
+    track.addEventListener('mousedown', function(e) {
+      isDragging = true; dragStart = e.clientX; dragX = -idx * frameW;
+      track.classList.add('dragging');
+    });
+    window.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      var delta = e.clientX - dragStart;
+      track.style.transform = 'translateX(' + (dragX + delta) + 'px)';
+    });
+    window.addEventListener('mouseup', function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('dragging');
+      measure();
+      var delta = e.clientX - dragStart;
+      goTo(idx - Math.round(delta / frameW));
+    });
+
+    // click frame → lightbox
+    frames.forEach(function(frame, i) {
+      frame.addEventListener('click', function(e) {
+        if (Math.abs(e.clientX - dragStart) > 5) return; // was a drag
+        var lb = document.getElementById('lb-overlay');
+        var lbImg = document.getElementById('lb-img');
+        var lbCap = document.getElementById('lb-cap');
+        if (!lb) return;
+        lbImg.src = frame.dataset.lbSrc;
+        lbImg.alt = frame.dataset.lbAlt;
+        lbCap.textContent = frame.dataset.lbCap;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // init after paint
+    requestAnimationFrame(function() { goTo(0); });
+  })();
+
+  // ── PERFORMANCE ACCORDION ──
+  document.querySelectorAll('.perf-acc-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var target = document.getElementById(btn.dataset.target);
+      var isOpen = btn.classList.contains('open');
+      // close all
+      document.querySelectorAll('.perf-acc-trigger').forEach(function(b) {
+        b.classList.remove('open');
+        var t = document.getElementById(b.dataset.target);
+        if (t) t.classList.remove('open');
+      });
+      // open this one if it was closed
+      if (!isOpen) {
+        btn.classList.add('open');
+        if (target) target.classList.add('open');
+      }
+    });
+  });
+
+
+
+  // ── SPA PAGE SWITCHER ──
+  (function() {
+    var navLinks = Array.from(document.querySelectorAll('.nav-links a[data-page]'));
+    var pages    = Array.from(document.querySelectorAll('.page-section'));
+    var homeEls  = Array.from(document.querySelectorAll('.homepage-only'));
+    var crumb    = document.getElementById('site-crumb');
+    var current  = null;
+
+    function showPage(id) {
+      pages.forEach(function(p) { p.classList.remove('active'); });
+      navLinks.forEach(function(a) { a.classList.remove('nav-active'); });
+
+      if (!id) {
+        homeEls.forEach(function(el) { el.style.display = ''; });
+        crumb && crumb.classList.remove('visible');
+        current = null;
+        window.scrollTo(0,0);
+        history.pushState(null, '', window.location.pathname);
+        return;
+      }
+
+      var page = document.getElementById('page-' + id);
+      if (!page) return;
+
+      homeEls.forEach(function(el) { el.style.display = 'none'; });
+      page.classList.add('active');
+      crumb && crumb.classList.add('visible');
+      current = id;
+
+      navLinks.forEach(function(a) {
+        if (a.dataset.page === id) a.classList.add('nav-active');
+      });
+
+      window.scrollTo(0,0);
+      history.pushState({ page: id }, '', '#' + id);
+
+      if (id === 'performance') {
+        requestAnimationFrame(function() { window.dispatchEvent(new Event('resize')); });
+      }
+    }
+
+    navLinks.forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(a.dataset.page);
+      });
+    });
+
+    crumb && crumb.addEventListener('click', function() { showPage(null); });
+
+    window.addEventListener('popstate', function(e) {
+      showPage(e.state && e.state.page || null);
+    });
+
+    var initHash = window.location.hash.replace('#','');
+    if (initHash && document.getElementById('page-' + initHash)) showPage(initHash);
+  })();
+
+
+  // ── DANCER CURSOR ──
+  (function() {
+    var cursor   = document.getElementById('dancer-cursor');
+    var dot      = document.getElementById('cursor-dot');
+    var svgEl    = cursor ? cursor.querySelector('svg') : null;
+    if (!cursor || !svgEl) return;
+
+    var poses    = ["<circle cx=\"20\" cy=\"6\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"20\" y1=\"9.5\" x2=\"20\" y2=\"26\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"14\" x2=\"10\" y2=\"20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"14\" x2=\"30\" y2=\"20\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"26\" x2=\"16\" y2=\"38\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"26\" x2=\"24\" y2=\"38\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>", "<circle cx=\"20\" cy=\"7\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"20\" y1=\"10.5\" x2=\"20\" y2=\"27\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"15\" x2=\"9\"  y2=\"10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"15\" x2=\"31\" y2=\"10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"17\" y2=\"39\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"23\" y2=\"37\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>", "<circle cx=\"20\" cy=\"7\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"20\" y1=\"10.5\" x2=\"20\" y2=\"27\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"13\" x2=\"13\" y2=\"4\"  stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"13\" x2=\"27\" y2=\"4\"  stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"15\" y2=\"39\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"25\" y2=\"39\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>", "<circle cx=\"16\" cy=\"10\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"16\" y1=\"13.5\" x2=\"20\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"17\" y1=\"18\" x2=\"6\"  y2=\"14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"17\" y1=\"18\" x2=\"30\" y2=\"15\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"28\" x2=\"18\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"28\" x2=\"34\" y2=\"18\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>", "<circle cx=\"19\" cy=\"7\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"19\" y1=\"10.5\" x2=\"20\" y2=\"27\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"15\" x2=\"10\" y2=\"11\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"15\" x2=\"30\" y2=\"9\"  stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"17\" y2=\"39\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"30\" y2=\"22\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n       <line x1=\"30\" y1=\"22\" x2=\"36\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>", "<circle cx=\"21\" cy=\"9\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"21\" y1=\"12.5\" x2=\"21\" y2=\"28\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"21\" y1=\"17\" x2=\"10\" y2=\"13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"21\" y1=\"17\" x2=\"32\" y2=\"13\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"21\" y1=\"28\" x2=\"19\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"21\" y1=\"28\" x2=\"10\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>", "<circle cx=\"20\" cy=\"7\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"20\" y1=\"10.5\" x2=\"20\" y2=\"27\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"14\" x2=\"9\"  y2=\"10\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"14\" x2=\"31\" y2=\"9\"  stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"17\" y2=\"40\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"27\" x2=\"29\" y2=\"23\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n       <line x1=\"29\" y1=\"23\" x2=\"24\" y2=\"30\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>", "<circle cx=\"20\" cy=\"5\" r=\"3.5\" fill=\"currentColor\"/>\n       <line x1=\"20\" y1=\"8.5\" x2=\"20\" y2=\"22\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"13\" x2=\"7\"  y2=\"18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"13\" x2=\"33\" y2=\"18\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"22\" x2=\"8\"  y2=\"35\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n       <line x1=\"20\" y1=\"22\" x2=\"32\" y2=\"35\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>"];
+    var nPoses   = poses.length;
+    var poseIdx  = 0;
+    var poseTimer = 0;
+    var POSE_MS  = 120; // ms per pose frame when moving
+
+    var mx = window.innerWidth/2, my = window.innerHeight/2;
+    var px = mx, py = my;
+    var vx = 0, vy = 0;
+    var lastT = 0;
+    var moving = false;
+    var stillTimer = null;
+
+    function setPose(i) {
+      poseIdx = ((i % nPoses) + nPoses) % nPoses;
+      svgEl.innerHTML = poses[poseIdx];
+    }
+
+    function update(t) {
+      var dt = Math.min(t - lastT, 50);
+      lastT = t;
+
+      // smooth follow
+      px += (mx - px) * 0.18;
+      py += (my - py) * 0.18;
+
+      // velocity (smoothed)
+      vx = mx - px;
+      vy = my - py;
+      var speed = Math.sqrt(vx*vx + vy*vy);
+
+      // rotate to face direction of travel
+      var angle = speed > 0.5 ? Math.atan2(vy, vx) * 180/Math.PI + 90 : 0;
+
+      // scale up slightly when fast
+      var scale = 1 + Math.min(speed * 0.015, 0.4);
+
+      cursor.style.transform = 'translate(' + (px-24) + 'px,' + (py-24) + 'px) rotate(' + angle + 'deg) scale(' + scale + ')';
+      dot.style.transform    = 'translate(' + (mx-2) + 'px,' + (my-2) + 'px)';
+
+      // cycle poses while moving
+      if (speed > 1) {
+        poseTimer += dt;
+        if (poseTimer >= POSE_MS) {
+          poseTimer = 0;
+          setPose(poseIdx + 1);
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX;
+      my = e.clientY;
+      moving = true;
+      clearTimeout(stillTimer);
+      // return to rest pose after 600ms of stillness
+      stillTimer = setTimeout(function() {
+        moving = false;
+        setPose(0);
+      }, 600);
+    });
+
+    // hide on leave, show on enter
+    document.addEventListener('mouseleave', function() {
+      cursor.style.opacity = '0';
+      dot.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', function() {
+      cursor.style.opacity = '1';
+      dot.style.opacity = '1';
+    });
+
+    // figure color: pink normally, orange on links/buttons
+    document.addEventListener('mouseover', function(e) {
+      var t = e.target.closest('a, button, [role="button"], .cs-slide, .perf-frame');
+      svgEl.style.color = t ? 'var(--orange)' : 'var(--ink)';
+    });
+
+    setPose(0);
+    requestAnimationFrame(update);
+  })();
+
+
+  // Clicking nav-name goes home
+  var navHome = document.getElementById('nav-home');
+  if (navHome) {
+    navHome.addEventListener('click', function(e) {
+      e.preventDefault();
+      // trigger the same showPage(null) as the crumb
+      var crumb = document.getElementById('site-crumb');
+      if (crumb) crumb.click();
+    });
+  }
+
+
+  // ── STUDIO GALLERY STRIPS ──
+  (function() {
+    document.querySelectorAll('.sg-strip').forEach(function(strip) {
+      var track  = strip.querySelector('.sg-track');
+      var frames = Array.from(track.querySelectorAll('.sg-frame'));
+      var count  = frames.length;
+      if (count <= 1) return;
+
+      var id      = track.id.replace('sgt-', '');
+      var counter = document.getElementById('sgc-' + id);
+      var idx     = 0;
+      var fw      = 0;
+
+      function measure() { fw = frames[0].offsetWidth + 1; }
+
+      function goTo(n) {
+        measure();
+        idx = Math.max(0, Math.min(n, count - Math.floor(strip.offsetWidth / fw)));
+        track.style.transform = 'translateX(' + (-idx * fw) + 'px)';
+        if (counter) counter.textContent = (idx + 1) + ' / ' + count;
+      }
+
+      strip.querySelector('.sg-prev').addEventListener('click', function(e) { e.stopPropagation(); goTo(idx - 1); });
+      strip.querySelector('.sg-next').addEventListener('click', function(e) { e.stopPropagation(); goTo(idx + 1); });
+      window.addEventListener('resize', function() { goTo(idx); });
+
+      // drag
+      var ds = 0, dx = 0, dragging = false;
+      track.addEventListener('mousedown', function(e) { dragging = true; ds = e.clientX; dx = -idx * fw; track.classList.add('no-transition'); strip.classList.add('dragging'); });
+      window.addEventListener('mousemove', function(e) { if (!dragging) return; track.style.transform = 'translateX(' + (dx + e.clientX - ds) + 'px)'; });
+      window.addEventListener('mouseup', function(e) {
+        if (!dragging) return;
+        dragging = false; track.classList.remove('no-transition'); strip.classList.remove('dragging');
+        goTo(idx - Math.round((e.clientX - ds) / fw));
+      });
+
+      // click → lightbox
+      frames.forEach(function(frame) {
+        frame.addEventListener('click', function(e) {
+          if (Math.abs(e.clientX - ds) > 5) return;
+          var lb = document.getElementById('lb-overlay');
+          if (!lb) return;
+          document.getElementById('lb-img').src = frame.dataset.lbSrc;
+          document.getElementById('lb-img').alt = frame.dataset.lbAlt;
+          document.getElementById('lb-cap').textContent = frame.dataset.lbCap;
+          lb.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      requestAnimationFrame(function() { goTo(0); });
+    });
+  })();
+
+</script>
+
+</body>
+</html>
