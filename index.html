@@ -632,6 +632,19 @@ html body .facts{margin:.2rem 0 0;display:grid;border-top:1px solid var(--rule);
 html body .facts div{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:.8rem;padding-block:.55rem;border-bottom:1px solid var(--rule)}
 html body .facts dt{font-family:var(--body);font-weight:500;font-size:var(--t-label);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);padding-top:.2rem}
 html body .facts dd{margin:0;font-family:var(--body);font-size:var(--t-small);line-height:1.5;color:var(--ink)}
+
+/* All Work rows with video: open in place */
+html body details.work>summary{list-style:none;cursor:pointer}
+html body details.work>summary::-webkit-details-marker{display:none}
+html body .work.has-video .state{color:var(--orange)}
+html body .work.has-video .state::before{content:"";display:inline-block;width:0;height:0;border-left:.45rem solid currentColor;border-top:.28rem solid transparent;border-bottom:.28rem solid transparent;margin-right:.45rem;vertical-align:.02rem}
+html body .work.has-video[open] .state::before{border-left:.28rem solid transparent;border-right:.28rem solid transparent;border-top:.45rem solid currentColor;border-bottom:0}
+@media (hover:hover){html body .work.has-video>summary:hover .t{color:var(--orange)}}
+html body details.work .case{padding:0 0 2.4rem}
+html body .vid{margin:0;display:grid;gap:.5rem;min-width:0}
+html body .vid video{display:block;width:100%;aspect-ratio:16/9;max-width:100%;background:#000}
+html body .vid figcaption{font-family:var(--body);font-weight:500;font-size:var(--t-label);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+html body details.work .media{gap:1.2rem}
 </style>
 
 <aside class="rail" aria-label="Site">
@@ -706,15 +719,15 @@ html body .facts dd{margin:0;font-family:var(--body);font-size:var(--t-small);li
           <button type="button" id="view-timeline" data-view="timeline" aria-pressed="false">Timeline</button>
           <button type="button" id="view-discipline" data-view="discipline" aria-pressed="false">Discipline</button>
         </div></div>
-      <p class="gate">Highlights are open above. Most of my work is under NDA, so full case studies are shared on request. <a class="ig-handle" href="#contact">Request access</a></p>
+      <p class="gate">Highlights are open above, and projects marked Watch include video. Most of my work is under NDA, so the rest is shared on request. <a class="ig-handle" href="#contact">Request access</a></p>
       <div id="index">
 
         <a id="w-cx" class="work open-row" href="#featured" data-year="2026" data-disc="Customer research &amp; experience"><span class="row"><span class="no">No. 1</span><span class="t">The Exceptional Hub Experience<small>Microsoft · Human-Centered Design Research</small></span><span class="yr">2026</span><span class="state">Read above ↑</span></span></a>
 
         <a id="w-frontier" class="work open-row" href="#featured" data-year="2025" data-disc="AI &amp; technology"><span class="row"><span class="no">No. 2</span><span class="t">Becoming Frontier<small>Microsoft · Field Enablement Tool</small></span><span class="yr">2025–26</span><span class="state">Read above ↑</span></span></a>
 
-        <div id="w-sovereignty" class="work locked" data-year="2025" data-disc="AI &amp; technology"><div class="row"><span class="no">No. 3</span><span class="t">Sovereignty &amp; Digital Resilience Studios<small>Microsoft · Strategy for adopting cloud and AI with control</small></span><span class="yr">2025–26</span><span class="state">On request</span></div></div>
-        <div id="w-nvidia" class="work locked" data-year="2025" data-disc="AI &amp; technology"><div class="row"><span class="no">No. 4</span><span class="t">NVIDIA Omniverse<small>Microsoft × NVIDIA · Explaining digital twins</small></span><span class="yr">2025</span><span class="state">On request</span></div></div>
+        <details id="w-sovereignty" class="work has-video" data-year="2025" data-disc="AI &amp; technology" data-peek="sovereign-cloud-de-poster.jpg"><summary class="row"><span class="no">No. 3</span><span class="t">Sovereignty &amp; Digital Resilience Studios<small>Microsoft · Strategy for adopting cloud and AI with control</small></span><span class="yr">2025–26</span><span class="state">Watch</span></summary><div class="case"><div class="beats"><p class="story">Governments and regulated industries want cloud and AI, but only if they keep control of their data. I took a dense mix of policy and technology and turned it into one framework that sales, engineers and executives read the same way, then a baseline so every studio opens with the same experience, wherever it is. That included 20 Sovereign Cloud videos, localized for markets around the world.</p></div><div class="media"><figure class="vid"><video controls preload="none" playsinline poster="sovereign-cloud-de-poster.jpg"><source src="sovereign-cloud-de.mp4" type="video/mp4"></video><figcaption>Sovereign Cloud · German</figcaption></figure><figure class="vid"><video controls preload="none" playsinline poster="sovereign-cloud-jp-poster.jpg"><source src="sovereign-cloud-jp.mp4" type="video/mp4"></video><figcaption>Sovereign Cloud · Japanese</figcaption></figure></div></div></details>
+        <details id="w-nvidia" class="work has-video" data-year="2025" data-disc="AI &amp; technology" data-peek="omniverse-explainer-poster.jpg"><summary class="row"><span class="no">No. 4</span><span class="t">NVIDIA Omniverse<small>Microsoft × NVIDIA · Explaining digital twins</small></span><span class="yr">2025</span><span class="state">Watch</span></summary><div class="case"><div class="beats"><p class="story">NVIDIA wanted a place in Microsoft's global Innovation Hub network, and its digital-twin technology is hard to explain to anyone who isn't an engineer. I turned it into a series of explainers for interactive kiosks in all 39 Hubs, built with NVIDIA's team from the first requirements to their brand review and timed for their biggest events. The series has been used in more than 500 customer engagements.</p></div><div class="media"><figure class="vid"><video controls preload="none" playsinline poster="omniverse-explainer-poster.jpg"><source src="omniverse-explainer.mp4" type="video/mp4"></video><figcaption>Omniverse explainer · 1 of 4</figcaption></figure></div></div></details>
 
 
         <div id="w-ms50" class="work locked" data-year="2025" data-disc="Brand &amp; storytelling"><div class="row"><span class="no">No. 5</span><span class="t">Microsoft at 50<small>Microsoft · Global anniversary campaign</small></span><span class="yr">2025</span><span class="state">On request</span></div></div>
